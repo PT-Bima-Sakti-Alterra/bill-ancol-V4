@@ -1,0 +1,1803 @@
+object upiutang: Tupiutang
+  Left = 251
+  Top = 117
+  BorderStyle = bsNone
+  Caption = 'upiutang'
+  ClientHeight = 680
+  ClientWidth = 1092
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Open Sans Semibold'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 15
+  object RzPanel1: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 1092
+    Height = 680
+    Align = alClient
+    BorderOuter = fsFlat
+    BorderColor = clWhite
+    BorderWidth = 5
+    Color = 16316664
+    TabOrder = 0
+    object info: TRzPanel
+      Left = 6
+      Top = 6
+      Width = 1080
+      Height = 33
+      Align = alTop
+      BorderOuter = fsNone
+      BorderColor = clBlack
+      Caption = 'PIUTANG AIR'
+      Color = 20966
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object gridrek: TcxGrid
+      Left = 24
+      Top = 80
+      Width = 1041
+      Height = 576
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+      LookAndFeel.SkinName = 'Office2013White'
+      object gtvrek: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = True
+        Navigator.Buttons.PriorPage.Visible = True
+        Navigator.Buttons.Prior.Visible = True
+        Navigator.Buttons.Next.Visible = True
+        Navigator.Buttons.NextPage.Visible = True
+        Navigator.Buttons.Last.Visible = True
+        Navigator.Buttons.Insert.Visible = True
+        Navigator.Buttons.Append.Visible = False
+        Navigator.Buttons.Delete.Visible = True
+        Navigator.Buttons.Edit.Visible = True
+        Navigator.Buttons.Post.Visible = True
+        Navigator.Buttons.Cancel.Visible = True
+        Navigator.Buttons.Refresh.Visible = True
+        Navigator.Buttons.SaveBookmark.Visible = True
+        Navigator.Buttons.GotoBookmark.Visible = True
+        Navigator.Buttons.Filter.Visible = True
+        DataController.DataSource = DSrek
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+          end
+          item
+            Format = ',0.;(,0.)'
+            Kind = skCount
+            Column = cxGridDBColumn1
+          end
+          item
+            Format = ',0.;(,0.)'
+            Kind = skSum
+          end
+          item
+            Format = ',0.;(,0.)'
+            Kind = skSum
+          end
+          item
+            Format = ',0.;(,0.)'
+            Kind = skSum
+          end
+          item
+            Format = '#,##0.##'
+            Kind = skSum
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn3
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn6
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn5
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn7
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn8
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn9
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn10
+          end
+          item
+            Format = '#,##0.#0'
+            Kind = skSum
+            Column = gtvrekColumn4
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.CellHints = True
+        OptionsBehavior.IncSearch = True
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsSelection.HideFocusRectOnExit = False
+        OptionsSelection.InvertSelect = False
+        OptionsSelection.UnselectFocusedRecordOnExit = False
+        OptionsView.FocusRect = False
+        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        OptionsView.GroupFooterMultiSummaries = True
+        Styles.Selection = cxStyle1
+        object cxGridDBColumn1: TcxGridDBColumn
+          Caption = 'BULAN'
+          DataBinding.FieldName = 'bulan'
+          HeaderAlignmentHorz = taCenter
+          Width = 88
+        end
+        object gtvrekColumn1: TcxGridDBColumn
+          Caption = 'S.LALU'
+          DataBinding.FieldName = 'stanlalu'
+          HeaderAlignmentHorz = taCenter
+          Width = 61
+        end
+        object gtvrekColumn2: TcxGridDBColumn
+          Caption = 'S.KINI'
+          DataBinding.FieldName = 'stanskrg'
+          HeaderAlignmentHorz = taCenter
+          Width = 66
+        end
+        object gtvrekColumn4: TcxGridDBColumn
+          Caption = 'PAKAI'
+          DataBinding.FieldName = 'pakai'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 58
+        end
+        object gtvrekColumn5: TcxGridDBColumn
+          Caption = 'BY.PAKAI'
+          DataBinding.FieldName = 'biayapemakaian'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 104
+        end
+        object gtvrekColumn7: TcxGridDBColumn
+          Caption = 'ADM'
+          DataBinding.FieldName = 'administrasi'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 90
+        end
+        object gtvrekColumn8: TcxGridDBColumn
+          Caption = 'PEMELIHARAAN'
+          DataBinding.FieldName = 'pemeliharaan'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 108
+        end
+        object gtvrekColumn11: TcxGridDBColumn
+          Caption = 'BEBAN TETAP'
+          DataBinding.FieldName = 'pelayanan'
+          HeaderAlignmentHorz = taCenter
+          Width = 98
+        end
+        object gtvrekColumn9: TcxGridDBColumn
+          Caption = 'I P L'
+          DataBinding.FieldName = 'retribusi'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 94
+        end
+        object gtvrekColumn6: TcxGridDBColumn
+          Caption = 'T A X'
+          DataBinding.FieldName = 'ppn'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 90
+        end
+        object gtvrekColumn10: TcxGridDBColumn
+          Caption = 'METERAI'
+          DataBinding.FieldName = 'meterai'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 86
+        end
+        object gtvrekColumn3: TcxGridDBColumn
+          Caption = 'REKAIR'
+          DataBinding.FieldName = 'rekair'
+          PropertiesClassName = 'TcxCurrencyEditProperties'
+          Properties.DisplayFormat = '#,##0.#0'
+          HeaderAlignmentHorz = taCenter
+          Width = 84
+        end
+      end
+      object cxGridLevel3: TcxGridLevel
+        GridView = gtvrek
+      end
+    end
+    object refresh: TcxButton
+      Left = 784
+      Top = 352
+      Width = 97
+      Height = 25
+      Caption = 'Tampilkan'
+      TabOrder = 2
+      Visible = False
+      OnClick = refreshClick
+      OptionsImage.ImageIndex = 7
+      OptionsImage.Images = DM.png16
+    end
+    object nama: TcxLabel
+      Left = 24
+      Top = 48
+      Caption = 'NAMA'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -15
+      Style.Font.Name = 'Open Sans Extrabold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+  end
+  object Qrek: TMyQuery
+    SQLRefresh.Strings = (
+      'SELECT'
+      'nosamb,'
+      'periode,'
+      'bulan,'
+      'stanlalu,stanskrg,pakai,'
+      'biayapemakaian,'
+      'administrasi,'
+      'pemeliharaan,'
+      'pelayanan,'
+      'retribusi,'
+      'meterai,'
+      'ppn,'
+      'rekair AS rekair'
+      'FROm piutang'
+      'WHERE nosamb=:nosamb '
+      'ORDER By periode DESC')
+    Connection = DM.Conn
+    Left = 200
+    Top = 192
+  end
+  object DSrek: TMyDataSource
+    DataSet = Qrek
+    Left = 89
+    Top = 225
+  end
+  object ActionList1: TActionList
+    Left = 537
+    Top = 265
+    object Action1: TAction
+      Caption = 'Action1'
+      ShortCut = 27
+      OnExecute = Action1Execute
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+      ShortCut = 16473
+    end
+  end
+  object dxComponentPrinter1: TdxComponentPrinter
+    CurrentLink = dxComponentPrinter1Link2
+    PreviewOptions.WindowState = wsMaximized
+    PreviewOptions.IsCaptionAssigned = True
+    Version = 0
+    Left = 264
+    Top = 224
+    object dxComponentPrinter1Link1: TdxGridReportLink
+      PrinterPage.DMPaper = 9
+      PrinterPage.Footer = 6350
+      PrinterPage.GrayShading = True
+      PrinterPage.Header = 6350
+      PrinterPage.Margins.Bottom = 12700
+      PrinterPage.Margins.Left = 12700
+      PrinterPage.Margins.Right = 12700
+      PrinterPage.Margins.Top = 12700
+      PrinterPage.Orientation = poLandscape
+      PrinterPage.PageSize.X = 210000
+      PrinterPage.PageSize.Y = 297000
+      PrinterPage.ScaleMode = smFit
+      PrinterPage._dxMeasurementUnits_ = 0
+      PrinterPage._dxLastMU_ = 2
+      ReportDocument.CreationDate = 42355.692188854170000000
+      ShrinkToPageWidth = True
+      OptionsFormatting.UseNativeStyles = True
+      StyleRepository = cxStyleRepository3
+      Styles.BandHeader = cxStyle13
+      Styles.Caption = cxStyle14
+      Styles.FilterBar = cxStyle15
+      Styles.Header = cxStyle16
+      Styles.Selection = cxStyle17
+      BuiltInReportLink = True
+    end
+    object dxComponentPrinter1Link2: TdxGridReportLink
+      PrinterPage.DMPaper = 9
+      PrinterPage.Footer = 6350
+      PrinterPage.GrayShading = True
+      PrinterPage.Header = 6350
+      PrinterPage.Margins.Bottom = 12700
+      PrinterPage.Margins.Left = 12700
+      PrinterPage.Margins.Right = 12700
+      PrinterPage.Margins.Top = 12700
+      PrinterPage.Orientation = poLandscape
+      PrinterPage.PageSize.X = 210000
+      PrinterPage.PageSize.Y = 297000
+      PrinterPage.ScaleMode = smFit
+      PrinterPage._dxMeasurementUnits_ = 0
+      PrinterPage._dxLastMU_ = 2
+      ReportDocument.CreationDate = 42945.406458900460000000
+      ShrinkToPageWidth = True
+      OptionsFormatting.UseNativeStyles = True
+      StyleRepository = cxStyleRepository4
+      Styles.BandHeader = cxStyle18
+      Styles.Caption = cxStyle19
+      Styles.CardCaptionRow = cxStyle20
+      Styles.FilterBar = cxStyle21
+      Styles.Footer = cxStyle22
+      Styles.Header = cxStyle23
+      Styles.Selection = cxStyle24
+      BuiltInReportLink = True
+    end
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    Left = 368
+    Top = 168
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = 12016384
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      TextColor = clWhite
+    end
+    object cxStyle2: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle3: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clWindow
+    end
+    object cxStyle4: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle5: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle6: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = 15790320
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+  end
+  object cxStyleRepository2: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle7: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle8: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle9: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clWindow
+    end
+    object cxStyle10: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle11: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle12: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+  end
+  object cxStyleRepository3: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle13: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle14: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle15: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clWindow
+    end
+    object cxStyle16: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle17: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+  end
+  object cxStyleRepository4: TcxStyleRepository
+    Left = 288
+    Top = 128
+    PixelsPerInch = 96
+    object cxStyle18: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle19: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle20: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle21: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clWindow
+    end
+    object cxStyle22: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle23: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+    object cxStyle24: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      TextColor = clBlack
+    end
+  end
+  object report: TfrxReport
+    Version = '5.1.9'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    PrintOptions.Reverse = True
+    ReportOptions.CreateDate = 42861.534199722200000000
+    ReportOptions.LastChange = 42861.552391863400000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 464
+    Top = 408
+    Datasets = <
+      item
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
+      end
+      item
+        DataSet = frxDBDataset2
+        DataSetName = 'frxDBDataset2'
+      end
+      item
+        DataSet = DM.pejabat
+        DataSetName = 'pejabat'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Draft 20cpi'
+      Font.Style = []
+      PaperWidth = 217.000000000000000000
+      PaperHeight = 279.000000000000000000
+      PaperSize = 256
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Height = 22.677180000000000000
+        Top = 336.378170000000000000
+        Width = 744.567410000000000000
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
+        RowCount = 0
+        Stretched = True
+        object frxDBDataset1tglbayar: TfrxMemoView
+          Left = 30.236240000000000000
+          Width = 102.047310000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'tglbayar'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataset1."tglbayar"]')
+          ParentFont = False
+        end
+        object frxDBDataset1bulan: TfrxMemoView
+          Left = 264.567100000000000000
+          Width = 68.031540000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."bulan"]')
+          ParentFont = False
+        end
+        object frxDBDataset1kasir: TfrxMemoView
+          Left = 166.299320000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."kasir"]')
+          ParentFont = False
+        end
+        object frxDBDataset1loketbayar: TfrxMemoView
+          Left = 136.063080000000000000
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."loketbayar"]')
+          ParentFont = False
+        end
+        object frxDBDataset1biayapemakaian: TfrxMemoView
+          Left = 336.378170000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'biayapemakaian'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset1."biayapemakaian"]')
+          ParentFont = False
+        end
+        object frxDBDataset1administrasi: TfrxMemoView
+          Left = 487.559370000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'administrasi'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset1."administrasi"]')
+          ParentFont = False
+        end
+        object frxDBDataset1pemeliharaan: TfrxMemoView
+          Left = 411.968770000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'pemeliharaan'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset1."pemeliharaan"]')
+          ParentFont = False
+        end
+        object frxDBDataset1dendatunggakan: TfrxMemoView
+          Left = 563.149970000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'dendatunggakan'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset1."dendatunggakan"]')
+          ParentFont = False
+        end
+        object frxDBDataset1rekair: TfrxMemoView
+          Left = 638.740570000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'rekair'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset1."rekair"]')
+          ParentFont = False
+        end
+        object Line: TfrxMemoView
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line#]')
+          ParentFont = False
+        end
+      end
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Height = 181.417440000000000000
+        Top = 18.897650000000000000
+        Width = 744.567410000000000000
+        object Memo2: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 3.779530000000000000
+          Width = 268.346630000000000000
+          Height = 37.795300000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'PEMERINTAH KOTAMADIA DATI II YOGYAKARTA'
+            'PERUSAHAAN DAERAH AIR MINUM "TIRTAMARTA"')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo3: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 34.015770000000000000
+          Width = 268.346630000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Y O G Y A K A R T A')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Line12: TfrxLineView
+          Left = 63.590600000000000000
+          Top = 60.472480000000000000
+          Width = 185.196970000000000000
+          Color = clBlack
+          Frame.Style = fsDot
+          Frame.Width = 0.100000000000000000
+          Diagonal = True
+        end
+        object Memo13: TfrxMemoView
+          Left = 309.921460000000000000
+          Top = 49.133890000000000000
+          Width = 275.905690000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'RIWAYAT PEMBAYARAN PELANGGAN')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo14: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 102.047310000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'TM')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo15: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 120.944960000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'CONTROL ')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo16: TfrxMemoView
+          Left = 170.078850000000000000
+          Top = 102.047310000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'NAMA')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo17: TfrxMemoView
+          Left = 170.078850000000000000
+          Top = 120.944960000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'ALAMAT')
+          ParentFont = False
+          WordWrap = False
+        end
+        object frxDBDataset1nosamb: TfrxMemoView
+          Left = 71.811070000000000000
+          Top = 102.047310000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            ':  [frxDBDataset1."nosamb"]')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo18: TfrxMemoView
+          Left = 71.811070000000000000
+          Top = 120.944960000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            ':  [frxDBDataset1."norekeningpel"]')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo19: TfrxMemoView
+          Left = 230.551330000000000000
+          Top = 102.047310000000000000
+          Width = 268.346630000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            ':  [frxDBDataset1."namapel"]')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo20: TfrxMemoView
+          Left = 230.551330000000000000
+          Top = 120.944960000000000000
+          Width = 268.346630000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            ':  [frxDBDataset1."alamatpel"]')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo21: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 139.842610000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'GOL')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo22: TfrxMemoView
+          Left = 71.811070000000000000
+          Top = 139.842610000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            ':  [frxDBDataset1."kodegolpel"]')
+          ParentFont = False
+          WordWrap = False
+        end
+        object keterangan: TfrxMemoView
+          Left = 309.921460000000000000
+          Top = 68.031540000000000000
+          Width = 275.905690000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            'ALAMAT')
+          ParentFont = False
+          WordWrap = False
+        end
+      end
+      object PageHeader1: TfrxPageHeader
+        FillType = ftBrush
+        Height = 52.913420000000000000
+        Top = 222.992270000000000000
+        Width = 744.567410000000000000
+        object Shape1: TfrxShapeView
+          Top = 26.456710000000000000
+          Width = 725.669760000000000000
+          Height = 18.897650000000000000
+          Frame.Width = 0.100000000000000000
+        end
+        object Memo12: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 26.456710000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'No')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 638.740570000000000000
+          Top = 26.456710000000000000
+          Width = 83.149660000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Total')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 563.149970000000000000
+          Top = 26.456710000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Denda')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 487.559370000000000000
+          Top = 26.456710000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Adm.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Left = 411.968770000000000000
+          Top = 26.456710000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Pem.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 336.378170000000000000
+          Top = 26.456710000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Uang Air')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo6: TfrxMemoView
+          Left = 166.299320000000000000
+          Top = 26.456710000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Kasir')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Left = 136.063080000000000000
+          Top = 26.456710000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Loket')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo4: TfrxMemoView
+          Left = 260.787570000000000000
+          Top = 26.456710000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Bulan')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo1: TfrxMemoView
+          Left = 26.456710000000000000
+          Top = 26.456710000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Tanggal')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          Top = 3.779530000000000000
+          Width = 260.787570000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            '- - PEMBAYARAN AIR & DENDA TUNGGAKAN')
+          ParentFont = False
+          WordWrap = False
+        end
+      end
+      object ReportSummary1: TfrxReportSummary
+        FillType = ftBrush
+        Height = 34.015770000000000000
+        Top = 419.527830000000000000
+        Width = 744.567410000000000000
+        Stretched = True
+        object Shape2: TfrxShapeView
+          Width = 725.669760000000000000
+          Height = 18.897650000000000000
+        end
+        object Memo27: TfrxMemoView
+          Left = 336.378170000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset1."biayapemakaian">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo28: TfrxMemoView
+          Left = 487.559370000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset1."administrasi">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo29: TfrxMemoView
+          Left = 411.968770000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset1."pemeliharaan">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo30: TfrxMemoView
+          Left = 563.149970000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset1."dendatunggakan">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo31: TfrxMemoView
+          Left = 638.740570000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset1."total">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo23: TfrxMemoView
+          Width = 336.378170000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Jumlah')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+    object Page2: TfrxReportPage
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Draft 20cpi'
+      Font.Style = []
+      PaperWidth = 215.900000000000000000
+      PaperHeight = 279.400000000000000000
+      PaperSize = 1
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      PrintOnPreviousPage = True
+      object MasterData2: TfrxMasterData
+        FillType = ftBrush
+        Height = 22.677180000000000000
+        Top = 136.063080000000000000
+        Width = 740.409927000000000000
+        DataSet = frxDBDataset2
+        DataSetName = 'frxDBDataset2'
+        RowCount = 0
+        Stretched = True
+        object frxDBDataset2waktubayar: TfrxMemoView
+          Left = 26.456710000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'waktubayar'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset2."waktubayar"]')
+          ParentFont = False
+        end
+        object Line1: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line#]')
+          ParentFont = False
+        end
+        object frxDBDataset2loketbayar: TfrxMemoView
+          Left = 136.063080000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'loketbayar'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset2."loketbayar"]')
+          ParentFont = False
+        end
+        object frxDBDataset2kasir: TfrxMemoView
+          Left = 166.299320000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'kasir'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset2."kasir"]')
+          ParentFont = False
+        end
+        object frxDBDataset2jenis: TfrxMemoView
+          Left = 264.567100000000000000
+          Width = 143.622140000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'jenis'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataset2."jenis"]')
+          ParentFont = False
+        end
+        object Memo32: TfrxMemoView
+          Left = 415.748300000000000000
+          Width = 219.212740000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'ketjenis'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataset2."ketjenis"]')
+          ParentFont = False
+        end
+        object frxDBDataset2total: TfrxMemoView
+          Left = 638.740570000000000000
+          Width = 83.149660000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'total'
+          DataSet = frxDBDataset2
+          DataSetName = 'frxDBDataset2'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxDBDataset2."total"]')
+          ParentFont = False
+        end
+      end
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        Height = 94.488250000000000000
+        Top = 18.897650000000000000
+        Width = 740.409927000000000000
+        object Shape3: TfrxShapeView
+          Top = 64.252010000000000000
+          Width = 725.669760000000000000
+          Height = 18.897650000000000000
+          Frame.Width = 0.100000000000000000
+        end
+        object Memo25: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 64.252010000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'No')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo26: TfrxMemoView
+          Left = 638.740570000000000000
+          Top = 64.252010000000000000
+          Width = 83.149660000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Total')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo36: TfrxMemoView
+          Left = 166.299320000000000000
+          Top = 64.252010000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Kasir')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo37: TfrxMemoView
+          Left = 136.063080000000000000
+          Top = 64.252010000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Loket')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo38: TfrxMemoView
+          Left = 260.787570000000000000
+          Top = 64.252010000000000000
+          Width = 147.401670000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Jenis')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo39: TfrxMemoView
+          Left = 26.456710000000000000
+          Top = 64.252010000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Tanggal')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo40: TfrxMemoView
+          Top = 41.574830000000000000
+          Width = 260.787570000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Memo.UTF8 = (
+            '- - PEMBAYARAN NON AIR')
+          ParentFont = False
+          WordWrap = False
+        end
+        object Memo33: TfrxMemoView
+          Left = 408.189240000000000000
+          Top = 64.252010000000000000
+          Width = 230.551330000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Keterangan')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object ReportSummary2: TfrxReportSummary
+        FillType = ftBrush
+        Height = 52.913420000000000000
+        Top = 219.212740000000000000
+        Width = 740.409927000000000000
+        Stretched = True
+        object Shape4: TfrxShapeView
+          Width = 725.669760000000000000
+          Height = 18.897650000000000000
+        end
+        object Memo43: TfrxMemoView
+          Left = 638.740570000000000000
+          Width = 83.149660000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataset2."total">,MasterData2)]')
+          ParentFont = False
+        end
+        object Memo44: TfrxMemoView
+          Width = 336.378170000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Draft 20cpi'
+          Font.Style = []
+          Frame.Width = 0.100000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Jumlah')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSource = MyDataSource1
+    BCDToCurrency = False
+    Left = 720
+    Top = 536
+  end
+  object frxDBDataset2: TfrxDBDataset
+    UserName = 'frxDBDataset2'
+    CloseDataSource = False
+    DataSource = MyDataSource2
+    BCDToCurrency = False
+    Left = 808
+    Top = 560
+  end
+  object MyDataSource2: TMyDataSource
+    Left = 1016
+    Top = 496
+  end
+  object MyDataSource1: TMyDataSource
+    Left = 856
+    Top = 472
+  end
+end

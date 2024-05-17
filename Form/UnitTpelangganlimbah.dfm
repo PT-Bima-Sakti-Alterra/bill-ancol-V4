@@ -1,0 +1,927 @@
+object UTpelangganlimbah: TUTpelangganlimbah
+  Left = 968
+  Top = 198
+  BorderIcons = []
+  BorderStyle = bsNone
+  ClientHeight = 523
+  ClientWidth = 477
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Open Sans'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  Scaled = False
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 19
+  object RzPanel1: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 477
+    Height = 523
+    Align = alClient
+    BevelWidth = 2
+    BorderOuter = fsFlat
+    BorderColor = clWhite
+    BorderShadow = clWhite
+    BorderWidth = 5
+    Color = 16316664
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Open Sans Semibold'
+    Font.Style = []
+    GradientColorStart = 9103615
+    GradientColorStop = 9234687
+    ParentFont = False
+    TabOrder = 0
+    object nama: TcxTextEdit
+      Left = 128
+      Top = 69
+      ParentFont = False
+      Properties.CharCase = ecUpperCase
+      Properties.MaxLength = 40
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 1
+      Width = 305
+    end
+    object cxLabel2: TcxLabel
+      Left = 32
+      Top = 71
+      Caption = 'NAMA *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object cxLabel3: TcxLabel
+      Left = 32
+      Top = 208
+      Caption = 'ALAMAT *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object cxLabel4: TcxLabel
+      Left = 32
+      Top = 139
+      Caption = 'KODE LIMBAH *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object cxLabel5: TcxLabel
+      Left = 32
+      Top = 92
+      Caption = 'RAYON *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object gsmcdma: TcxTextEdit
+      Left = 208
+      Top = 274
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 10
+      Width = 121
+    end
+    object cxLabel13: TcxLabel
+      Left = 32
+      Top = 274
+      Caption = 'TELP / HP'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object telp: TcxTextEdit
+      Left = 128
+      Top = 274
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 9
+      Width = 81
+    end
+    object cxLabel16: TcxLabel
+      Left = 32
+      Top = 412
+      Caption = 'TGL.JADI PEL. *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object alamat: TcxMemo
+      Left = 128
+      Top = 208
+      ParentFont = False
+      Properties.CharCase = ecUpperCase
+      Properties.MaxLength = 50
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 4
+      Height = 66
+      Width = 305
+    end
+    object cxLabel23: TcxLabel
+      Left = 32
+      Top = 435
+      Caption = 'STATUS *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object status: TcxComboBox
+      Left = 128
+      Top = 434
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.Items.Strings = (
+        'NON AKTIF'
+        'AKTIF'
+        'SEGEL')
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 18
+      Text = 'AKTIF'
+      Width = 121
+    end
+    object cxLabel1: TcxLabel
+      Left = 32
+      Top = 49
+      Caption = 'NOMOR LIMBAH'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object cxLabel32: TcxLabel
+      Left = 32
+      Top = 297
+      Caption = 'KOLEKTIF *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object kodekolektif: TcxComboBox
+      Left = 128
+      Top = 297
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.MaxLength = 20
+      Properties.OnChange = kodekolektifPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 11
+      Width = 57
+    end
+    object koderayon: TcxComboBox
+      Left = 128
+      Top = 92
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = koderayonPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 2
+      Width = 81
+    end
+    object kodelimbah: TcxComboBox
+      Left = 128
+      Top = 139
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = kodelimbahPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 3
+      Width = 81
+    end
+    object tgldaftar: TcxDateEdit
+      Left = 128
+      Top = 412
+      AutoSize = False
+      ParentFont = False
+      Properties.DisplayFormat = 'dd MMM yyyy'
+      Properties.EditFormat = 'dd MMM yyyy'
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 17
+      Height = 21
+      Width = 121
+    end
+    object golonganlimbah: TcxComboBox
+      Left = 208
+      Top = 139
+      TabStop = False
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = golonganlimbahPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 20
+      Width = 225
+    end
+    object kolektif: TcxComboBox
+      Left = 184
+      Top = 297
+      TabStop = False
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = kolektifPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 24
+      Width = 249
+    end
+    object cxButton1: TcxButton
+      Left = 284
+      Top = 47
+      Width = 149
+      Height = 21
+      Caption = 'Auto Nosamb'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 34
+      TabStop = False
+      OnClick = cxButton1Click
+      OptionsImage.ImageIndex = 7
+      OptionsImage.Images = DM.png16
+      SpeedButtonOptions.CanBeFocused = False
+    end
+    object cxLabel14: TcxLabel
+      Left = 32
+      Top = 115
+      Caption = 'KELURAHAN *'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object kodekelurahan: TcxComboBox
+      Left = 128
+      Top = 115
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = kodekelurahanPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 22
+      Width = 81
+    end
+    object kelurahan: TcxComboBox
+      Left = 208
+      Top = 115
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = kelurahanPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 23
+      Width = 225
+    end
+    object namarayon: TcxComboBox
+      Left = 208
+      Top = 92
+      TabStop = False
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = namarayonPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 21
+      Width = 225
+    end
+    object kepemilikan: TcxComboBox
+      Left = 280
+      Top = 366
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.MaxLength = 20
+      Properties.OnChange = kodekolektifPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 15
+      Width = 153
+    end
+    object cxLabel8: TcxLabel
+      Left = 200
+      Top = 367
+      Caption = 'BANGUNAN'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object cxLabel11: TcxLabel
+      Left = 32
+      Top = 320
+      Caption = 'PEMILIK'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object namapemilik: TcxTextEdit
+      Left = 128
+      Top = 320
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 12
+      Width = 305
+    end
+    object cxLabel17: TcxLabel
+      Left = 34
+      Top = 345
+      Caption = 'KTP'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object noktp: TcxTextEdit
+      Left = 128
+      Top = 343
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 13
+      Width = 161
+    end
+    object cxLabel21: TcxLabel
+      Left = 32
+      Top = 366
+      Caption = 'PENGHUNI'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object penghuni: TcxTextEdit
+      Left = 128
+      Top = 366
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 14
+      Width = 57
+    end
+    object nomor: TcxTextEdit
+      Left = 128
+      Top = 46
+      ParentFont = False
+      Properties.CharCase = ecUpperCase
+      Properties.ReadOnly = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+      TabOrder = 0
+      Width = 153
+    end
+    object cxLabel15: TcxLabel
+      Left = 664
+      Top = 173
+      Caption = 'BLOK'
+      Enabled = False
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object kodeblok: TcxComboBox
+      Left = 704
+      Top = 173
+      Enabled = False
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = kodeblokPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 41
+      Width = 65
+    end
+    object namablok: TcxComboBox
+      Left = 768
+      Top = 173
+      Enabled = False
+      ParentFont = False
+      Properties.DropDownListStyle = lsEditFixedList
+      Properties.DropDownRows = 15
+      Properties.OnChange = namablokPropertiesChange
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 42
+      Width = 201
+    end
+    object cxLabel19: TcxLabel
+      Left = 296
+      Top = 343
+      Caption = 'LUAS RMH'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object luasrumah: TcxCurrencyEdit
+      Left = 368
+      Top = 343
+      EditValue = 0.000000000000000000
+      ParentFont = False
+      Properties.Alignment.Horz = taRightJustify
+      Properties.DisplayFormat = ',0.;(,0.)'
+      Properties.EditFormat = ',0.;(,0.)'
+      Properties.UseDisplayFormatWhenEditing = True
+      Properties.UseLeftAlignmentOnEditing = False
+      Properties.UseNullString = True
+      Properties.UseThousandSeparator = True
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 8
+      Width = 65
+    end
+    object ok: TcxButton
+      Left = 128
+      Top = 467
+      Width = 129
+      Height = 33
+      Caption = 'Simpan'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 44
+      TabStop = False
+      OnClick = okClick
+      OptionsImage.ImageIndex = 23
+      OptionsImage.Images = DM.png16
+      SpeedButtonOptions.CanBeFocused = False
+    end
+    object no: TcxButton
+      Left = 263
+      Top = 467
+      Width = 130
+      Height = 33
+      Caption = 'Batal'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 45
+      TabStop = False
+      OnClick = noClick
+      OptionsImage.ImageIndex = 0
+      OptionsImage.Images = DM.png16
+      SpeedButtonOptions.CanBeFocused = False
+    end
+    object cxLabel10: TcxLabel
+      Left = 32
+      Top = 389
+      Caption = 'EMAIL'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object email: TcxTextEdit
+      Left = 128
+      Top = 389
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 16
+      Width = 305
+    end
+    object cxLabel12: TcxLabel
+      Left = 648
+      Top = 235
+      Caption = 'NO.REKENING'
+      Enabled = False
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object norekening: TcxTextEdit
+      Left = 744
+      Top = 232
+      Enabled = False
+      ParentFont = False
+      Properties.CharCase = ecUpperCase
+      Properties.ReadOnly = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+      TabOrder = 19
+      Width = 153
+    end
+    object RzPanel8: TRzPanel
+      Left = 6
+      Top = 6
+      Width = 465
+      Height = 33
+      Align = alTop
+      BorderOuter = fsNone
+      BorderColor = clBlack
+      Caption = 'DATA PELANGGAN'
+      Color = 20966
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = []
+      GradientColorStart = 20966
+      GradientColorStop = 19157
+      ParentFont = False
+      TabOrder = 48
+      OnMouseDown = RzPanel8MouseDown
+    end
+    object cxLabel24: TcxLabel
+      Left = 584
+      Top = 331
+      Caption = 'NO.RUMAH'
+      Enabled = False
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object norumah: TcxTextEdit
+      Left = 680
+      Top = 331
+      Enabled = False
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 5
+      Width = 81
+    end
+    object cxLabel25: TcxLabel
+      Left = 800
+      Top = 331
+      Caption = 'RT'
+      Enabled = False
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object rt: TcxTextEdit
+      Left = 824
+      Top = 331
+      Enabled = False
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 6
+      Width = 65
+    end
+    object cxLabel26: TcxLabel
+      Left = 893
+      Top = 331
+      Caption = 'RW'
+      Enabled = False
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+    object rw: TcxTextEdit
+      Left = 920
+      Top = 331
+      Enabled = False
+      ParentFont = False
+      Properties.MaxLength = 15
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 7
+      Width = 65
+    end
+    object cekhanyamelengkapidata: TcxCheckBox
+      Left = 128
+      Top = 187
+      TabStop = False
+      Caption = 'Hanya Melengkapi Data'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      TabOrder = 52
+      Transparent = True
+      OnClick = cekhanyamelengkapidataClick
+      Width = 273
+    end
+    object nosamb: TcxTextEdit
+      Left = 128
+      Top = 162
+      ParentFont = False
+      Properties.CharCase = ecUpperCase
+      Properties.ReadOnly = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = [fsBold]
+      Style.IsFontAssigned = True
+      TabOrder = 53
+      Width = 153
+    end
+    object cxLabel6: TcxLabel
+      Left = 32
+      Top = 165
+      Caption = 'NOMOR AIR'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -11
+      Style.Font.Name = 'Open Sans Semibold'
+      Style.Font.Style = []
+      Style.TextColor = clBlack
+      Style.IsFontAssigned = True
+      Transparent = True
+    end
+  end
+  object ActionList1: TActionList
+    Left = 304
+    Top = 160
+    object Action1: TAction
+      Caption = 'Action1'
+      ShortCut = 13
+      OnExecute = okClick
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+      ShortCut = 27
+      OnExecute = noClick
+    end
+  end
+  object Qcek: TMyQuery
+    Connection = DM.Conn
+    Left = 40
+    Top = 176
+  end
+  object Qnosamb: TMyQuery
+    Connection = Umain.host
+    Left = 344
+    Top = 400
+  end
+  object QcekVPS: TMyQuery
+    Connection = Umain.host
+    Left = 392
+    Top = 368
+  end
+end

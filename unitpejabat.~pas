@@ -1,0 +1,548 @@
+unit unitpejabat;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, dxSkinsCore, cxCheckBox, DB, MemDS,
+  DBAccess, MyAccess, cxTextEdit, cxLabel, Menus, StdCtrls, cxButtons,
+  cxMaskEdit, cxDropDownEdit, ExtCtrls, RzPanel, ActnList,
+  dxSkinOffice2013White, RzLabel;
+
+type
+  Tupejabat = class(TForm)
+    Qpengguna: TMyQuery;
+    Qpenggunaid: TIntegerField;
+    Qpenggunajabatan: TStringField;
+    Qpenggunamaster_pelanggan_akses: TStringField;
+    Qpenggunamaster_pelanggan_koreksi: TStringField;
+    Qpenggunamaster_pelanggan_tambah: TStringField;
+    Qpenggunamaster_pelanggan_hapus: TStringField;
+    Qpenggunamaster_pelanggan_updaterekening: TStringField;
+    Qpenggunamaster_rekening_akses: TStringField;
+    Qpenggunamaster_rekening_koreksi: TStringField;
+    Qpenggunamaster_rekening_hapus: TStringField;
+    Qpenggunamaster_rekening_updaterekening: TStringField;
+    Qpenggunamaster_rekening_updatebcmeter: TStringField;
+    Qpenggunamaster_rekening_terbitkanpelanggan: TStringField;
+    Qpenggunamaster_rekening_publish: TStringField;
+    Qpenggunamaster_rekening_unpublish: TStringField;
+    Qpenggunamaster_rekening_hitungulang: TStringField;
+    Qpenggunamaster_rekening_koreksistatus: TStringField;
+    Qpenggunamaster_rekening_passwordpembatalan: TStringField;
+    Qpenggunamaster_periode_akses: TStringField;
+    Qpenggunamaster_periode_tambah: TStringField;
+    Qpenggunamaster_periode_settgldenda: TStringField;
+    Qpenggunamaster_periode_hapus: TStringField;
+    Qpenggunamaster_tarif_akses: TStringField;
+    Qpenggunamaster_tarif_tambah: TStringField;
+    Qpenggunamaster_tarif_hapus: TStringField;
+    Qpenggunamaster_tarif_koreksi: TStringField;
+    Qpenggunamaster_wilayah_akses: TStringField;
+    Qpenggunamaster_wilayah_tambah: TStringField;
+    Qpenggunamaster_wilayah_hapus: TStringField;
+    Qpenggunamaster_wilayah_koreksi: TStringField;
+    Qpenggunamaster_kolektif_akses: TStringField;
+    Qpenggunamaster_merkmeter_akses: TStringField;
+    Qpenggunamaster_sumberair_akses: TStringField;
+    Qpenggunamaster_kelainan_akses: TStringField;
+    Qpenggunamaster_loket_akses: TStringField;
+    Qpenggunamaster_loket_tambah: TStringField;
+    Qpenggunamaster_loket_hapus: TStringField;
+    Qpenggunamaster_loket_koreksi: TStringField;
+    Qpenggunamaster_userpusat_akses: TStringField;
+    Qpenggunamaster_userpusat_tambah: TStringField;
+    Qpenggunamaster_userpusat_hapus: TStringField;
+    Qpenggunamaster_userpusat_koreksi: TStringField;
+    Qpenggunamaster_userloket_akses: TStringField;
+    Qpenggunamaster_userloket_tambah: TStringField;
+    Qpenggunamaster_userloket_hapus: TStringField;
+    Qpenggunamaster_userloket_koreksi: TStringField;
+    Qpenggunalihat_transaksiloket: TStringField;
+    Qpenggunalihat_logaksespusatdanloket: TStringField;
+    Qpenggunaperawatandata: TStringField;
+    Qpenggunaparaflaporan: TStringField;
+    Qpenggunasetbulanberjalan: TStringField;
+    Qpenggunafotobcmeter: TStringField;
+    Qpenggunaresetpassword: TStringField;
+    Qexec: TMyQuery;
+    RzPanel1: TRzPanel;
+    cxComboBox1: TcxComboBox;
+    cxComboBox2: TcxComboBox;
+    cxComboBox3: TcxComboBox;
+    cxComboBox4: TcxComboBox;
+    cxLabel2: TcxLabel;
+    cxLabel3: TcxLabel;
+    cxLabel4: TcxLabel;
+    cxLabel5: TcxLabel;
+    cxLabel6: TcxLabel;
+    cxComboBox5: TcxComboBox;
+    RzPanel2: TRzPanel;
+    cxComboBox6: TcxComboBox;
+    cxLabel7: TcxLabel;
+    cxLabel8: TcxLabel;
+    cxComboBox7: TcxComboBox;
+    cxLabel9: TcxLabel;
+    cxComboBox8: TcxComboBox;
+    cxLabel10: TcxLabel;
+    cxComboBox9: TcxComboBox;
+    cxLabel11: TcxLabel;
+    cxComboBox10: TcxComboBox;
+    cxLabel12: TcxLabel;
+    cxComboBox11: TcxComboBox;
+    cxLabel13: TcxLabel;
+    cxComboBox12: TcxComboBox;
+    cxLabel14: TcxLabel;
+    cxComboBox13: TcxComboBox;
+    cxLabel15: TcxLabel;
+    cxComboBox14: TcxComboBox;
+    cxLabel16: TcxLabel;
+    cxComboBox15: TcxComboBox;
+    cxComboBox16: TcxComboBox;
+    cxLabel17: TcxLabel;
+    RzPanel3: TRzPanel;
+    cxComboBox17: TcxComboBox;
+    cxComboBox18: TcxComboBox;
+    cxComboBox19: TcxComboBox;
+    cxComboBox20: TcxComboBox;
+    cxLabel18: TcxLabel;
+    cxLabel19: TcxLabel;
+    cxLabel20: TcxLabel;
+    cxLabel21: TcxLabel;
+    RzPanel4: TRzPanel;
+    jabatan: TcxTextEdit;
+    cxLabel1: TcxLabel;
+    RzPanel5: TRzPanel;
+    cxLabel22: TcxLabel;
+    cxLabel23: TcxLabel;
+    cxComboBox22: TcxComboBox;
+    cxComboBox23: TcxComboBox;
+    cxLabel24: TcxLabel;
+    cxLabel25: TcxLabel;
+    cxComboBox24: TcxComboBox;
+    RzPanel6: TRzPanel;
+    cxComboBox25: TcxComboBox;
+    cxComboBox26: TcxComboBox;
+    cxComboBox27: TcxComboBox;
+    cxComboBox28: TcxComboBox;
+    cxLabel26: TcxLabel;
+    cxLabel27: TcxLabel;
+    cxLabel28: TcxLabel;
+    cxLabel29: TcxLabel;
+    RzPanel7: TRzPanel;
+    cxLabel30: TcxLabel;
+    cxComboBox29: TcxComboBox;
+    cxLabel31: TcxLabel;
+    cxComboBox30: TcxComboBox;
+    cxLabel32: TcxLabel;
+    cxComboBox31: TcxComboBox;
+    cxLabel33: TcxLabel;
+    cxComboBox32: TcxComboBox;
+    cxLabel46: TcxLabel;
+    cxComboBox45: TcxComboBox;
+    cxLabel47: TcxLabel;
+    cxComboBox46: TcxComboBox;
+    cxLabel48: TcxLabel;
+    cxComboBox47: TcxComboBox;
+    cxLabel49: TcxLabel;
+    cxComboBox48: TcxComboBox;
+    cxLabel50: TcxLabel;
+    cxComboBox49: TcxComboBox;
+    cxLabel51: TcxLabel;
+    cxComboBox50: TcxComboBox;
+    cxLabel52: TcxLabel;
+    cxComboBox51: TcxComboBox;
+    RzPanel8: TRzPanel;
+    cxComboBox33: TcxComboBox;
+    cxComboBox34: TcxComboBox;
+    cxComboBox35: TcxComboBox;
+    cxComboBox36: TcxComboBox;
+    cxLabel34: TcxLabel;
+    cxLabel35: TcxLabel;
+    cxLabel36: TcxLabel;
+    cxLabel37: TcxLabel;
+    RzPanel9: TRzPanel;
+    cxComboBox37: TcxComboBox;
+    cxComboBox38: TcxComboBox;
+    cxComboBox39: TcxComboBox;
+    cxComboBox40: TcxComboBox;
+    cxLabel38: TcxLabel;
+    cxLabel39: TcxLabel;
+    cxLabel40: TcxLabel;
+    cxLabel41: TcxLabel;
+    RzPanel10: TRzPanel;
+    cxComboBox41: TcxComboBox;
+    cxComboBox42: TcxComboBox;
+    cxComboBox43: TcxComboBox;
+    cxComboBox44: TcxComboBox;
+    cxLabel42: TcxLabel;
+    cxLabel43: TcxLabel;
+    cxLabel44: TcxLabel;
+    cxLabel45: TcxLabel;
+    cxLabel53: TcxLabel;
+    cxComboBox52: TcxComboBox;
+    Qpenggunaaksesjabatan: TStringField;
+    Qpenggunabukatutupperiode: TStringField;
+    cxLabel54: TcxLabel;
+    cxComboBox53: TcxComboBox;
+    Qpenggunamaster_pendaftaranloket_konfirmasi: TStringField;
+    ActionList1: TActionList;
+    Action1: TAction;
+    Action2: TAction;
+    RzPanel12: TRzPanel;
+    cxButton1: TcxButton;
+    cxButton2: TcxButton;
+    cxLabel57: TcxLabel;
+    cxComboBox56: TcxComboBox;
+    Qpenggunatransferdata: TStringField;
+    RzPanel13: TRzPanel;
+    info: TRzLabel;
+    cxLabel55: TcxLabel;
+    cxComboBox55: TcxComboBox;
+    cxComboBox21: TcxComboBox;
+    procedure FormShow(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  upejabat: Tupejabat;
+
+implementation
+
+{$R *.dfm}  uses Module, Math;
+
+procedure Tupejabat.FormShow(Sender: TObject);
+begin
+
+  if DM.Xkey='Koreksi' then
+  begin
+      Qpengguna.Close;
+      Qpengguna.SQL.Clear;
+      Qpengguna.SQL.Add('select * FROm jabatan WHERE jabatan=:jabatan');
+      Qpengguna.ParamByName('jabatan').AsString:=jabatan.Text;
+      Qpengguna.Open;
+
+      if(Qpengguna.RecordCount>0)then
+      begin
+
+            cxComboBox1.ItemIndex:=StrToInt(Qpenggunamaster_pelanggan_akses.Value);
+            cxComboBox2.ItemIndex:=StrToInt(Qpenggunamaster_pelanggan_tambah.Value);
+            cxComboBox3.ItemIndex:=StrToInt(Qpenggunamaster_pelanggan_koreksi.Value);
+            cxComboBox4.ItemIndex:=StrToInt(Qpenggunamaster_pelanggan_hapus.Value);
+            cxComboBox5.ItemIndex:=StrToInt(Qpenggunamaster_pelanggan_updaterekening.Value);
+
+            cxComboBox6.ItemIndex:=StrToInt(Qpenggunamaster_rekening_akses.Value);
+            cxComboBox7.ItemIndex:=StrToInt(Qpenggunamaster_rekening_koreksi.Value);
+            cxComboBox8.ItemIndex:=StrToInt(Qpenggunamaster_rekening_hapus.Value);
+            cxComboBox9.ItemIndex:=StrToInt(Qpenggunamaster_rekening_updaterekening.Value);
+            cxComboBox10.ItemIndex:=StrToInt(Qpenggunamaster_rekening_updatebcmeter.Value);
+            cxComboBox11.ItemIndex:=StrToInt(Qpenggunamaster_rekening_terbitkanpelanggan.Value);
+            cxComboBox12.ItemIndex:=StrToInt(Qpenggunamaster_rekening_publish.Value);
+            cxComboBox13.ItemIndex:=StrToInt(Qpenggunamaster_rekening_unpublish.Value);
+            cxComboBox14.ItemIndex:=StrToInt(Qpenggunamaster_rekening_hitungulang.Value);
+            cxComboBox15.ItemIndex:=StrToInt(Qpenggunamaster_rekening_koreksistatus.Value);
+            cxComboBox16.ItemIndex:=StrToInt(Qpenggunamaster_rekening_passwordpembatalan.Value);
+
+
+            cxComboBox17.ItemIndex:=StrToInt(Qpenggunamaster_periode_akses.Value);
+            cxComboBox18.ItemIndex:=StrToInt(Qpenggunamaster_periode_tambah.Value);
+            cxComboBox19.ItemIndex:=StrToInt(Qpenggunamaster_periode_hapus.Value);
+            cxComboBox20.ItemIndex:=StrToInt(Qpenggunamaster_periode_settgldenda.Value);
+
+
+            cxComboBox21.ItemIndex:=StrToInt(Qpenggunamaster_tarif_akses.Value);
+            cxComboBox22.ItemIndex:=StrToInt(Qpenggunamaster_tarif_tambah.Value);
+            cxComboBox23.ItemIndex:=StrToInt(Qpenggunamaster_tarif_hapus.Value);
+            cxComboBox24.ItemIndex:=StrToInt(Qpenggunamaster_tarif_koreksi.Value);
+
+            cxComboBox25.ItemIndex:=StrToInt(Qpenggunamaster_wilayah_akses.Value);
+            cxComboBox26.ItemIndex:=StrToInt(Qpenggunamaster_wilayah_tambah.Value);
+            cxComboBox27.ItemIndex:=StrToInt(Qpenggunamaster_wilayah_hapus.Value);
+            cxComboBox28.ItemIndex:=StrToInt(Qpenggunamaster_wilayah_koreksi.Value);
+
+            cxComboBox29.ItemIndex:=StrToInt(Qpenggunamaster_kolektif_akses.Value);
+            cxComboBox30.ItemIndex:=StrToInt(Qpenggunamaster_merkmeter_akses.Value);
+            cxComboBox31.ItemIndex:=StrToInt(Qpenggunamaster_sumberair_akses.Value);
+            cxComboBox32.ItemIndex:=StrToInt(Qpenggunamaster_kelainan_akses.Value);
+
+            cxComboBox33.ItemIndex:=StrToInt(Qpenggunamaster_loket_akses.Value);
+            cxComboBox34.ItemIndex:=StrToInt(Qpenggunamaster_loket_tambah.Value);
+            cxComboBox35.ItemIndex:=StrToInt(Qpenggunamaster_loket_hapus.Value);
+            cxComboBox36.ItemIndex:=StrToInt(Qpenggunamaster_loket_koreksi.Value);
+
+            cxComboBox37.ItemIndex:=StrToInt(Qpenggunamaster_userpusat_akses.Value);
+            cxComboBox38.ItemIndex:=StrToInt(Qpenggunamaster_userpusat_tambah.Value);
+            cxComboBox39.ItemIndex:=StrToInt(Qpenggunamaster_userpusat_hapus.Value);
+            cxComboBox40.ItemIndex:=StrToInt(Qpenggunamaster_userpusat_koreksi.Value);
+
+            cxComboBox41.ItemIndex:=StrToInt(Qpenggunamaster_userloket_akses.Value);
+            cxComboBox42.ItemIndex:=StrToInt(Qpenggunamaster_userloket_tambah.Value);
+            cxComboBox43.ItemIndex:=StrToInt(Qpenggunamaster_userloket_hapus.Value);
+            cxComboBox44.ItemIndex:=StrToInt(Qpenggunamaster_userloket_koreksi.Value);
+
+        
+            cxComboBox45.ItemIndex:=StrToInt(Qpenggunalihat_transaksiloket.Value);
+            cxComboBox46.ItemIndex:=StrToInt(Qpenggunalihat_logaksespusatdanloket.Value);
+            cxComboBox47.ItemIndex:=StrToInt(Qpenggunaperawatandata.Value);
+            cxComboBox48.ItemIndex:=StrToInt(Qpenggunaparaflaporan.Value);
+        
+            cxComboBox49.ItemIndex:=StrToInt(Qpenggunasetbulanberjalan.Value);
+            cxComboBox50.ItemIndex:=StrToInt(Qpenggunafotobcmeter.Value);
+            cxComboBox51.ItemIndex:=StrToInt(Qpenggunaresetpassword.Value);
+            cxComboBox52.ItemIndex:=StrToInt(Qpenggunaaksesjabatan.Value);
+            cxComboBox53.ItemIndex:=StrToInt(Qpenggunabukatutupperiode.Value);
+            
+            cxComboBox55.ItemIndex:=StrToInt(Qpenggunamaster_pendaftaranloket_konfirmasi.Value);
+            cxComboBox56.ItemIndex:=StrToInt(Qpenggunatransferdata.Value);
+
+
+             jabatan.Properties.ReadOnly:=true;
+
+      end
+      else
+        MessageDlg('Maaf, Jabatan tidak ditemukan" !!', mtInformation, [mbOk], 0);
+  end;
+
+end;
+
+procedure Tupejabat.cxButton1Click(Sender: TObject);
+
+begin
+if (jabatan.Text<>'')then
+begin
+
+  if(DM.Xkey='Tambah')then
+  begin
+
+  
+  DM.Qcek.Close;
+  DM.Qcek.SQL.Clear;
+  DM.Qcek.SQL.Add('select * FROm jabatan WHERE jabatan=:jabatan');
+  DM.Qcek.ParamByName('jabatan').AsString:=jabatan.Text;
+  DM.Qcek.Open;
+
+      if(DM.Qcek.RecordCount=0)then
+      begin
+
+        Qexec.close;
+        Qexec.SQL.Clear;
+        Qexec.SQL.Add(Qexec.SQLInsert.Text);
+        Qexec.parambyname('jabatan').asstring:=jabatan.Text;
+        Qexec.parambyname('master_pelanggan_akses').asstring:= IntToStr(cxComboBox1.ItemIndex);
+        Qexec.parambyname('master_pelanggan_tambah').asstring:= IntToStr(cxComboBox2.ItemIndex);
+        Qexec.parambyname('master_pelanggan_koreksi').asstring:= IntToStr(cxComboBox3.ItemIndex);
+        Qexec.parambyname('master_pelanggan_hapus').asstring:=  IntToStr(cxComboBox4.ItemIndex);
+        Qexec.parambyname('master_pelanggan_updaterekening').asstring:= IntToStr(cxComboBox5.ItemIndex);
+        Qexec.parambyname('master_rekening_akses').asstring:=  IntToStr(cxComboBox6.ItemIndex);
+        Qexec.parambyname('master_rekening_koreksi').asstring:= IntToStr(cxComboBox7.ItemIndex);
+        Qexec.parambyname('master_rekening_hapus').asstring:= IntToStr(cxComboBox8.ItemIndex);
+        Qexec.parambyname('master_rekening_updaterekening').asstring:=  IntToStr(cxComboBox9.ItemIndex);
+        Qexec.parambyname('master_rekening_updatebcmeter').asstring:= IntToStr(cxComboBox10.ItemIndex);
+        Qexec.parambyname('master_rekening_terbitkanpelanggan').asstring:= IntToStr(cxComboBox11.ItemIndex);
+        Qexec.parambyname('master_rekening_publish').asstring:=  IntToStr(cxComboBox12.ItemIndex);
+        Qexec.parambyname('master_rekening_unpublish').asstring:=  IntToStr(cxComboBox13.ItemIndex);
+        Qexec.parambyname('master_rekening_hitungulang').asstring:=  IntToStr(cxComboBox14.ItemIndex);
+        Qexec.parambyname('master_rekening_koreksistatus').asstring:=  IntToStr(cxComboBox15.ItemIndex);
+        Qexec.parambyname('master_rekening_passwordpembatalan').asstring:= IntToStr(cxComboBox16.ItemIndex);
+        Qexec.parambyname('master_periode_akses').asstring:=   IntToStr(cxComboBox17.ItemIndex);
+        Qexec.parambyname('master_periode_tambah').asstring:=   IntToStr(cxComboBox18.ItemIndex);
+        Qexec.parambyname('master_periode_hapus').asstring:=  IntToStr(cxComboBox19.ItemIndex);
+        Qexec.parambyname('master_periode_settgldenda').asstring:=  IntToStr(cxComboBox20.ItemIndex);
+        Qexec.parambyname('master_tarif_akses').asstring:= IntToStr(cxComboBox21.ItemIndex);
+        Qexec.parambyname('master_tarif_tambah').asstring:=   IntToStr(cxComboBox22.ItemIndex);
+        Qexec.parambyname('master_tarif_hapus').asstring:=   IntToStr(cxComboBox23.ItemIndex);
+        Qexec.parambyname('master_tarif_koreksi').asstring:=   IntToStr(cxComboBox24 .ItemIndex);
+        Qexec.parambyname('master_wilayah_akses').asstring:=    IntToStr(cxComboBox25.ItemIndex);
+        Qexec.parambyname('master_wilayah_tambah').asstring:=  IntToStr(cxComboBox26.ItemIndex);
+        Qexec.parambyname('master_wilayah_hapus').asstring:=   IntToStr(cxComboBox27.ItemIndex);
+        Qexec.parambyname('master_wilayah_koreksi').asstring:=  IntToStr(cxComboBox28.ItemIndex);
+        Qexec.parambyname('master_kolektif_akses').asstring:=  IntToStr(cxComboBox29.ItemIndex);
+        Qexec.parambyname('master_merkmeter_akses').asstring:=  IntToStr(cxComboBox30.ItemIndex);
+        Qexec.parambyname('master_sumberair_akses').asstring:=  IntToStr(cxComboBox31.ItemIndex);
+        Qexec.parambyname('master_kelainan_akses').asstring:=   IntToStr(cxComboBox32.ItemIndex);
+        Qexec.parambyname('master_loket_akses').asstring:=   IntToStr(cxComboBox33.ItemIndex);
+        Qexec.parambyname('master_loket_tambah').asstring:=  IntToStr(cxComboBox34.ItemIndex);
+        Qexec.parambyname('master_loket_hapus').asstring:=   IntToStr(cxComboBox35.ItemIndex);
+        Qexec.parambyname('master_loket_koreksi').asstring:=   IntToStr(cxComboBox36.ItemIndex);
+        Qexec.parambyname('master_userpusat_akses').asstring:=   IntToStr(cxComboBox37.ItemIndex);
+        Qexec.parambyname('master_userpusat_tambah').asstring:=   IntToStr(cxComboBox38.ItemIndex);
+        Qexec.parambyname('master_userpusat_hapus').asstring:=   IntToStr(cxComboBox39.ItemIndex);
+        Qexec.parambyname('master_userpusat_koreksi').asstring:=  IntToStr(cxComboBox40.ItemIndex);
+        Qexec.parambyname('master_userloket_akses').asstring:=  IntToStr(cxComboBox41.ItemIndex);
+        Qexec.parambyname('master_userloket_tambah').asstring:=   IntToStr(cxComboBox42.ItemIndex);
+        Qexec.parambyname('master_userloket_hapus').asstring:=   IntToStr(cxComboBox43.ItemIndex);
+        Qexec.parambyname('master_userloket_koreksi').asstring:=    IntToStr(cxComboBox44.ItemIndex);
+        Qexec.parambyname('lihat_transaksiloket').asstring:=  IntToStr(cxComboBox45.ItemIndex);
+        Qexec.parambyname('lihat_logaksespusatdanloket').asstring:= IntToStr(cxComboBox46.ItemIndex);
+        Qexec.parambyname('perawatandata').asstring:=   IntToStr(cxComboBox47.ItemIndex);
+        Qexec.parambyname('paraflaporan').asstring:=  IntToStr(cxComboBox48.ItemIndex);
+        Qexec.parambyname('setbulanberjalan').asstring:=  IntToStr(cxComboBox49.ItemIndex);
+        Qexec.parambyname('fotobcmeter').asstring:= IntToStr(cxComboBox50.ItemIndex);
+        Qexec.parambyname('resetpassword').asstring:=  IntToStr(cxComboBox51.ItemIndex);
+        Qexec.parambyname('aksesjabatan').asstring:=  IntToStr(cxComboBox52.ItemIndex);
+        Qexec.parambyname('bukatutupperiode').asstring:=  IntToStr(cxComboBox53.ItemIndex);
+        Qexec.parambyname('master_pendaftaranloket_konfirmasi').asstring:=  IntToStr(cxComboBox55.ItemIndex);
+        Qexec.parambyname('transferdata').asstring:=  IntToStr(cxComboBox56.ItemIndex);
+        Qexec.Execute;
+        ModalResult:=mROK;
+        end
+        else
+          MessageDlg('Maaf, Nama Jabatan sudah digunakan !!!', mtError, [mbOK], 0);
+  end
+  else
+  begin
+
+  DM.Qcek.Close;
+  DM.Qcek.SQL.Clear;
+  DM.Qcek.SQL.Add('select * FROm jabatan WHERE jabatan=:jabatan AND id<>:id');
+  DM.Qcek.ParamByName('jabatan').AsString:=jabatan.Text;
+  DM.Qcek.ParamByName('id').AsInteger:=DM.Xid;
+  DM.Qcek.Open;
+
+    if(DM.Qcek.RecordCount=0)then
+    begin
+
+          Qexec.close;
+          Qexec.SQL.Clear;
+          Qexec.SQL.Add(Qexec.SQLUpdate.Text);
+          Qexec.parambyname('id').AsInteger:=DM.Xid;
+          Qexec.parambyname('jabatan').asstring:=jabatan.Text;
+          Qexec.parambyname('master_pelanggan_akses').asstring:= IntToStr(cxComboBox1.ItemIndex);
+          Qexec.parambyname('master_pelanggan_tambah').asstring:= IntToStr(cxComboBox2.ItemIndex);
+          Qexec.parambyname('master_pelanggan_koreksi').asstring:= IntToStr(cxComboBox3.ItemIndex);
+          Qexec.parambyname('master_pelanggan_hapus').asstring:=  IntToStr(cxComboBox4.ItemIndex);
+          Qexec.parambyname('master_pelanggan_updaterekening').asstring:= IntToStr(cxComboBox5.ItemIndex);
+          Qexec.parambyname('master_rekening_akses').asstring:=  IntToStr(cxComboBox6.ItemIndex);
+          Qexec.parambyname('master_rekening_koreksi').asstring:= IntToStr(cxComboBox7.ItemIndex);
+          Qexec.parambyname('master_rekening_hapus').asstring:= IntToStr(cxComboBox8.ItemIndex);
+          Qexec.parambyname('master_rekening_updaterekening').asstring:=  IntToStr(cxComboBox9.ItemIndex);
+          Qexec.parambyname('master_rekening_updatebcmeter').asstring:= IntToStr(cxComboBox10.ItemIndex);
+          Qexec.parambyname('master_rekening_terbitkanpelanggan').asstring:= IntToStr(cxComboBox11.ItemIndex);
+          Qexec.parambyname('master_rekening_publish').asstring:=  IntToStr(cxComboBox12.ItemIndex);
+          Qexec.parambyname('master_rekening_unpublish').asstring:=  IntToStr(cxComboBox13.ItemIndex);
+          Qexec.parambyname('master_rekening_hitungulang').asstring:=  IntToStr(cxComboBox14.ItemIndex);
+          Qexec.parambyname('master_rekening_koreksistatus').asstring:=  IntToStr(cxComboBox15.ItemIndex);
+          Qexec.parambyname('master_rekening_passwordpembatalan').asstring:= IntToStr(cxComboBox16.ItemIndex);
+          Qexec.parambyname('master_periode_akses').asstring:=   IntToStr(cxComboBox17.ItemIndex);
+          Qexec.parambyname('master_periode_tambah').asstring:=   IntToStr(cxComboBox18.ItemIndex);
+          Qexec.parambyname('master_periode_hapus').asstring:=  IntToStr(cxComboBox19.ItemIndex);
+          Qexec.parambyname('master_periode_settgldenda').asstring:=  IntToStr(cxComboBox20.ItemIndex);
+          Qexec.parambyname('master_tarif_akses').asstring:= IntToStr(cxComboBox21.ItemIndex);
+          Qexec.parambyname('master_tarif_tambah').asstring:=   IntToStr(cxComboBox22.ItemIndex);
+          Qexec.parambyname('master_tarif_hapus').asstring:=   IntToStr(cxComboBox23.ItemIndex);
+          Qexec.parambyname('master_tarif_koreksi').asstring:=   IntToStr(cxComboBox24 .ItemIndex);
+          Qexec.parambyname('master_wilayah_akses').asstring:=    IntToStr(cxComboBox25.ItemIndex);
+          Qexec.parambyname('master_wilayah_tambah').asstring:=  IntToStr(cxComboBox26.ItemIndex);
+          Qexec.parambyname('master_wilayah_hapus').asstring:=   IntToStr(cxComboBox27.ItemIndex);
+          Qexec.parambyname('master_wilayah_koreksi').asstring:=  IntToStr(cxComboBox28.ItemIndex);
+          Qexec.parambyname('master_kolektif_akses').asstring:=  IntToStr(cxComboBox29.ItemIndex);
+          Qexec.parambyname('master_merkmeter_akses').asstring:=  IntToStr(cxComboBox30.ItemIndex);
+          Qexec.parambyname('master_sumberair_akses').asstring:=  IntToStr(cxComboBox31.ItemIndex);
+          Qexec.parambyname('master_kelainan_akses').asstring:=   IntToStr(cxComboBox32.ItemIndex);
+          Qexec.parambyname('master_loket_akses').asstring:=   IntToStr(cxComboBox33.ItemIndex);
+          Qexec.parambyname('master_loket_tambah').asstring:=  IntToStr(cxComboBox34.ItemIndex);
+          Qexec.parambyname('master_loket_hapus').asstring:=   IntToStr(cxComboBox35.ItemIndex);
+          Qexec.parambyname('master_loket_koreksi').asstring:=   IntToStr(cxComboBox36.ItemIndex);
+          Qexec.parambyname('master_userpusat_akses').asstring:=   IntToStr(cxComboBox37.ItemIndex);
+          Qexec.parambyname('master_userpusat_tambah').asstring:=   IntToStr(cxComboBox38.ItemIndex);
+          Qexec.parambyname('master_userpusat_hapus').asstring:=   IntToStr(cxComboBox39.ItemIndex);
+          Qexec.parambyname('master_userpusat_koreksi').asstring:=  IntToStr(cxComboBox40.ItemIndex);
+          Qexec.parambyname('master_userloket_akses').asstring:=  IntToStr(cxComboBox41.ItemIndex);
+          Qexec.parambyname('master_userloket_tambah').asstring:=   IntToStr(cxComboBox42.ItemIndex);
+          Qexec.parambyname('master_userloket_hapus').asstring:=   IntToStr(cxComboBox43.ItemIndex);
+          Qexec.parambyname('master_userloket_koreksi').asstring:=    IntToStr(cxComboBox44.ItemIndex);
+          Qexec.parambyname('lihat_transaksiloket').asstring:=  IntToStr(cxComboBox45.ItemIndex);
+          Qexec.parambyname('lihat_logaksespusatdanloket').asstring:= IntToStr(cxComboBox46.ItemIndex);
+          Qexec.parambyname('perawatandata').asstring:=   IntToStr(cxComboBox47.ItemIndex);
+          Qexec.parambyname('paraflaporan').asstring:=  IntToStr(cxComboBox48.ItemIndex);
+          Qexec.parambyname('setbulanberjalan').asstring:=  IntToStr(cxComboBox49.ItemIndex);
+          Qexec.parambyname('fotobcmeter').asstring:= IntToStr(cxComboBox50.ItemIndex);
+          Qexec.parambyname('resetpassword').asstring:=  IntToStr(cxComboBox51.ItemIndex);
+          Qexec.parambyname('aksesjabatan').asstring:=  IntToStr(cxComboBox52.ItemIndex);
+          Qexec.parambyname('bukatutupperiode').asstring:=  IntToStr(cxComboBox53.ItemIndex); 
+          Qexec.parambyname('master_pendaftaranloket_konfirmasi').asstring:=  IntToStr(cxComboBox55.ItemIndex);
+          Qexec.parambyname('transferdata').asstring:=  IntToStr(cxComboBox56.ItemIndex);
+          Qexec.Execute;
+          ModalResult:=mROK;
+  end
+  else
+     MessageDlg('Maaf, Nama Jabatan sudah digunakan !!!', mtError, [mbOK], 0);
+  end;
+end;
+end;
+
+procedure Tupejabat.cxButton2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tupejabat.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+jabatan.Clear;
+cxComboBox1.ItemIndex:=0;
+cxComboBox2.ItemIndex:=0;
+cxComboBox3.ItemIndex:=0;
+cxComboBox4.ItemIndex:=0;
+cxComboBox5.ItemIndex:=0;
+cxComboBox6.ItemIndex:=0;
+cxComboBox7.ItemIndex:=0;
+cxComboBox8.ItemIndex:=0;
+cxComboBox9.ItemIndex:=0;
+cxComboBox10.ItemIndex:=0;
+cxComboBox11.ItemIndex:=0;
+cxComboBox12.ItemIndex:=0;
+cxComboBox13.ItemIndex:=0;
+cxComboBox14.ItemIndex:=0;
+cxComboBox15.ItemIndex:=0;
+cxComboBox16.ItemIndex:=0;
+cxComboBox17.ItemIndex:=0;
+cxComboBox18.ItemIndex:=0;
+cxComboBox19.ItemIndex:=0;
+cxComboBox20.ItemIndex:=0;
+cxComboBox21.ItemIndex:=0;
+cxComboBox22.ItemIndex:=0;
+cxComboBox23.ItemIndex:=0;
+cxComboBox24.ItemIndex:=0;
+cxComboBox25.ItemIndex:=0;
+cxComboBox26.ItemIndex:=0;
+cxComboBox27.ItemIndex:=0;
+cxComboBox28.ItemIndex:=0;
+cxComboBox29.ItemIndex:=0;
+cxComboBox30.ItemIndex:=0;
+cxComboBox31.ItemIndex:=0;
+cxComboBox32.ItemIndex:=0;
+cxComboBox33.ItemIndex:=0;
+cxComboBox34.ItemIndex:=0;
+cxComboBox35.ItemIndex:=0;
+cxComboBox36.ItemIndex:=0;
+cxComboBox37.ItemIndex:=0;
+cxComboBox38.ItemIndex:=0;
+cxComboBox39.ItemIndex:=0;
+cxComboBox40.ItemIndex:=0;
+cxComboBox41.ItemIndex:=0;
+cxComboBox42.ItemIndex:=0;
+cxComboBox43.ItemIndex:=0;
+cxComboBox44.ItemIndex:=0;
+cxComboBox45.ItemIndex:=0;
+cxComboBox46.ItemIndex:=0;
+cxComboBox47.ItemIndex:=0;
+cxComboBox48.ItemIndex:=0;
+cxComboBox49.ItemIndex:=0;
+cxComboBox50.ItemIndex:=0;
+cxComboBox51.ItemIndex:=0;
+cxComboBox52.ItemIndex:=0;
+cxComboBox53.ItemIndex:=0;
+
+cxComboBox55.ItemIndex:=0;
+cxComboBox1.SetFocus;
+jabatan.Properties.ReadOnly:=false;
+end;
+
+end.

@@ -1,0 +1,750 @@
+unit UnitTpelangganlltt;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, dxSkinsCore,
+  ComCtrls, dxCore, cxDateUtils, Menus, StdCtrls, cxButtons,
+  cxDropDownEdit, cxCalendar, cxCurrencyEdit, cxMemo, cxMaskEdit, cxLabel,
+  cxTextEdit, ExtCtrls, RzPanel, ActnList, DB, MemDS, DBAccess, MyAccess,
+  RzPrgres, dxSkinOffice2013White, cxCheckBox, RzDTP;
+
+type
+  TUTpelangganlltt = class(TForm)
+    RzPanel1: TRzPanel;
+    nama: TcxTextEdit;
+    cxLabel2: TcxLabel;
+    cxLabel3: TcxLabel;
+    cxLabel4: TcxLabel;
+    cxLabel5: TcxLabel;
+    gsmcdma: TcxTextEdit;
+    cxLabel13: TcxLabel;
+    telp: TcxTextEdit;
+    cxLabel16: TcxLabel;
+    alamat: TcxMemo;
+    cxLabel23: TcxLabel;
+    status: TcxComboBox;
+    cxLabel1: TcxLabel;
+    cxLabel32: TcxLabel;
+    kodekolektif: TcxComboBox;
+    koderayon: TcxComboBox;
+    kodelltt: TcxComboBox;
+    tgldaftar: TcxDateEdit;
+    golonganlltt: TcxComboBox;
+    kolektif: TcxComboBox;
+    cxButton1: TcxButton;
+    cxLabel14: TcxLabel;
+    kodekelurahan: TcxComboBox;
+    kelurahan: TcxComboBox;
+    namarayon: TcxComboBox;
+    kepemilikan: TcxComboBox;
+    cxLabel8: TcxLabel;
+    cxLabel11: TcxLabel;
+    namapemilik: TcxTextEdit;
+    cxLabel17: TcxLabel;
+    noktp: TcxTextEdit;
+    cxLabel21: TcxLabel;
+    penghuni: TcxTextEdit;
+    nomor: TcxTextEdit;
+    ActionList1: TActionList;
+    Action1: TAction;
+    Action2: TAction;
+    Qcek: TMyQuery;
+    Qnosamb: TMyQuery;
+    cxLabel15: TcxLabel;
+    kodeblok: TcxComboBox;
+    namablok: TcxComboBox;
+    cxLabel19: TcxLabel;
+    luasrumah: TcxCurrencyEdit;
+    ok: TcxButton;
+    no: TcxButton;
+    cxLabel10: TcxLabel;
+    email: TcxTextEdit;
+    cxLabel12: TcxLabel;
+    norekening: TcxTextEdit;
+    RzPanel8: TRzPanel;
+    cxLabel24: TcxLabel;
+    norumah: TcxTextEdit;
+    cxLabel25: TcxLabel;
+    rt: TcxTextEdit;
+    cxLabel26: TcxLabel;
+    rw: TcxTextEdit;
+    QcekVPS: TMyQuery;
+    cekhanyamelengkapidata: TcxCheckBox;
+    nosamb: TcxTextEdit;
+    cxLabel6: TcxLabel;
+    procedure noClick(Sender: TObject);
+    procedure koderayonPropertiesChange(Sender: TObject);
+    procedure namarayonPropertiesChange(Sender: TObject);
+    procedure kodekolektifPropertiesChange(Sender: TObject);
+    procedure kolektifPropertiesChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure okClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure kodekelurahanPropertiesChange(Sender: TObject);
+    procedure kelurahanPropertiesChange(Sender: TObject);
+    procedure kodeblokPropertiesChange(Sender: TObject);
+    procedure namablokPropertiesChange(Sender: TObject);
+    procedure RzPanel8MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure cekhanyamelengkapidataClick(Sender: TObject);
+    procedure kodellttPropertiesChange(Sender: TObject);
+    procedure golonganllttPropertiesChange(Sender: TObject);
+   
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    zkoderayon,
+    znamarayon,
+    zkodegol,
+    zgolongan,
+    zkodediameter,
+    zukuran,
+    zkodekolektif,
+    zkolektif,
+    zkodeloket,
+    zkodecabang,zcabang,
+    zkodekelurahan,zkelurahan,
+    zkodewil,zwilayah,Znosamb:String;
+    zkodeadmlain,zkodepemlain,zkoderetlain:String;
+    Znama,Znorekening,Zkepemilikan,Zsumberair,zmerk,zurutan:String;
+    znopendaftaran,znorab,zkodeblok,zkodekondisimeter:String;
+    zkodelltt:String;
+    
+
+    znosambdaribshl:String;
+    
+  end;
+
+var
+  UTpelangganlltt: TUTpelangganlltt;
+
+implementation
+
+{$R *.dfm}  uses Module, UnitCombo,  UnitMain, StrUtils, unitloading;
+
+procedure TUTpelangganlltt.noClick(Sender: TObject);
+begin
+close;
+end;
+
+procedure TUTpelangganlltt.koderayonPropertiesChange(Sender: TObject);
+begin
+namarayon.ItemIndex:=koderayon.ItemIndex;
+
+
+   DM.Qcek.Close;
+   DM.Qcek.SQL.Clear;
+   DM.Qcek.SQL.Add('SELECT * FROM blok WHERE koderayon="'+koderayon.Text+'" ORDER BY kodeblok ASC ');
+   DM.Qcek.Open;
+   kodeblok.Properties.Items.Clear;
+   namablok.Properties.Items.Clear;
+
+
+   while not DM.Qcek.Eof do
+   begin
+            kodeblok.Properties.Items.Add(DM.Qcek.FieldByName('kodeblok').ASstring);
+            namablok.Properties.Items.Add(DM.Qcek.FieldByName('namablok').ASstring);
+
+            DM.Qcek.Next;
+   end;
+
+
+   kodeblok.Text:=zkodeblok;
+
+
+end;
+
+procedure TUTpelangganlltt.namarayonPropertiesChange(Sender: TObject);
+begin
+koderayon.ItemIndex:=namarayon.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.kodekolektifPropertiesChange(Sender: TObject);
+begin
+kolektif.ItemIndex:=kodekolektif.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.kolektifPropertiesChange(Sender: TObject);
+begin
+kodekolektif.ItemIndex:=kolektif.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.FormShow(Sender: TObject);
+begin
+
+
+      ucombo.isikombo();
+
+      namarayon.properties.items:= Ucombo.namarayon.properties.items;
+      koderayon.properties.items:= Ucombo.koderayon.properties.items;
+
+      kodekolektif.properties.items:= Ucombo.kodekolektif.properties.items;
+      kolektif.properties.items:= Ucombo.kolektif.properties.items;
+      kodekelurahan.properties.items:= Ucombo.kodekelurahan.properties.items;
+      kelurahan.properties.items:= Ucombo.kelurahan.properties.items;
+      kepemilikan.properties.items:= Ucombo.kepemilikan.properties.items;
+
+      kodelltt.properties.items:= Ucombo.kodelltt.properties.items;
+      golonganlltt.properties.items:= Ucombo.namalltt.properties.items;
+
+
+      cekhanyamelengkapidata.Visible:=false;
+
+
+      if(DM.Xflag='Koreksi')then
+      begin
+
+
+          kodekolektif.text:= zkodekolektif;
+          kolektif.text:=   zkolektif;
+          koderayon.Text:=zkoderayon;
+          namarayon.Text:=znamarayon;
+          kodekelurahan.Text:=zkodekelurahan;
+          kepemilikan.Text:=Zkepemilikan;
+          kodelltt.Text:=zkodelltt;
+
+
+
+
+          cekhanyamelengkapidata.Checked:=false;
+          cekhanyamelengkapidata.Visible:=true;
+
+
+
+      end
+
+      else if(DM.Xflag='Pengaktifan')then
+      begin
+
+
+          kodekolektif.text:= zkodekolektif;
+          koderayon.Text:=zkoderayon;
+          kelurahan.Text:=zkelurahan;
+          kepemilikan.Text:=Zkepemilikan;
+          kodelltt.Text:=zkodelltt;
+
+
+          if(nomor.Text='')then
+          cxButton1.Visible:=true
+          else
+          cxButton1.Visible:=false;
+
+
+
+      end;
+
+     
+
+
+end;
+
+procedure TUTpelangganlltt.okClick(Sender: TObject);
+var
+j:integer;
+lanjut:byte;
+begin
+
+  if nomor.Text='' then
+  begin
+      MessageDlg('Nomor lltt harus diisi !!', mtWarning, [mbOK], 0);
+      exit;
+  end;
+
+   if nama.Text='' then
+  begin
+      MessageDlg('Nama harus diisi !!', mtWarning, [mbOK], 0);
+      exit;
+  end;
+
+
+   if alamat.Text='' then
+  begin
+      MessageDlg('Alamat harus diisi !!', mtWarning, [mbOK], 0);
+      exit;
+  end;
+
+
+   if kodelltt.Text='' then
+  begin
+      MessageDlg('Golongan lltt harus diisi !!', mtWarning, [mbOK], 0);
+      exit;
+  end;
+
+
+     if koderayon.Text='' then
+  begin
+      MessageDlg('Rayon lltt harus diisi !!', mtWarning, [mbOK], 0);
+
+      exit;
+  end;
+
+    if kodekelurahan.Text='' then
+  begin
+      MessageDlg('Kelurahan lltt harus diisi !!', mtWarning, [mbOK], 0);
+
+      exit;
+  end;
+
+
+
+     if tgldaftar.Text='' then
+  begin
+      MessageDlg('tanggal daftar harus diisi !!', mtWarning, [mbOK], 0);
+      exit;
+  end;
+
+
+
+    
+    umain.openkoneksi_host;
+
+
+    TRY
+      Enabled:=false;
+
+      TRY
+
+
+
+       Umain.Qhost1.close;
+       Umain.Qhost1.SQL.Clear;
+       Umain.Qhost1.SQL.Add('START TRANSACTION');
+       Umain.Qhost1.Execute; 
+
+       DM.Qexec.close;
+       DM.Qexec.SQL.Clear;
+       DM.Qexec.SQL.Add('START TRANSACTION');
+       DM.Qexec.Execute;
+
+
+
+
+          ////TAMBAH//----------------------------  
+         if(DM.Xflag='Tambah') OR
+         (DM.Xflag='Pengaktifan')then
+         begin
+
+              Qnosamb.Close;
+              Qnosamb.SQL.Clear;
+              Qnosamb.SQL.add('select * FROm nosamb_lltt WHERE  nomor=:nomor');
+              Qnosamb.ParamByName('nomor').AsString:=nomor.Text;
+              Qnosamb.Open;
+
+
+               if(Qnosamb.RecordCount>0) AND
+               (DM.xflag<>'Pengaktifan')then
+               begin
+                MessageDlg('Nomor L2T2 Sudah digunakan  !!!', mtWarning, [mbOK], 0);
+                exit;
+               end;
+
+
+                    Umain.Qhost1.close;
+                    Umain.Qhost1.SQL.Clear;
+                    Umain.Qhost1.SQL.Add('INSERT into pelanggan_lltt (nomorlltt,nosamb,nama,alamat,kodelltt,koderayon,kodekelurahan,kodekolektif,status,flag,nopendaftaran,norab,waktuupdate,kodeblok,luasrumah,notelp,nohp,norumah,rt,rw)');
+                    Umain.Qhost1.SQL.add('VALUES');
+                    Umain.Qhost1.SQL.Add('(:nomorlltt,:nosamb,:nama,:alamat,:kodelltt,:koderayon,:kodekelurahan,:kodekolektif,:status,:flag,:nopendaftaran,:norab,NOW(),:kodeblok,:luasrumah,:notelp,:nohp,:norumah,:rt,:rw)');
+                    Umain.Qhost1.ParamByName('nomorlltt').AsString:=nomor.Text;
+                    Umain.Qhost1.ParamByName('nosamb').AsString:=nosamb.Text;
+                    Umain.Qhost1.ParamByName('nama').AsString:=nama.Text;
+                    Umain.Qhost1.ParamByName('alamat').AsString:=alamat.Text;
+                    Umain.Qhost1.ParamByName('kodelltt').AsString:=kodelltt.Text;
+                    Umain.Qhost1.ParamByName('koderayon').AsString:=koderayon.Text;
+                    Umain.Qhost1.ParamByName('kodekelurahan').AsString:=kodekelurahan.Text;
+                    Umain.Qhost1.ParamByName('kodekolektif').AsString:=kodekolektif.Text;
+                    Umain.Qhost1.ParamByName('status').AsInteger:=status.ItemIndex; 
+                    Umain.Qhost1.ParamByName('flag').AsString:='1';
+                    Umain.Qhost1.ParamByName('nopendaftaran').AsString:=znopendaftaran;
+                    Umain.Qhost1.ParamByName('kodeblok').AsString:=kodeblok.Text;
+                    Umain.Qhost1.ParamByName('luasrumah').AsCurrency:=luasrumah.Value;
+                    Umain.Qhost1.ParamByName('norab').AsString:=znorab;
+                    Umain.Qhost1.ParamByName('notelp').AsString:=telp.Text;
+                    Umain.Qhost1.ParamByName('nohp').AsString:=gsmcdma.Text;
+                    Umain.Qhost1.ParamByName('norumah').AsString:=norumah.Text;
+                    Umain.Qhost1.ParamByName('rt').AsString:=rt.Text;
+                    Umain.Qhost1.ParamByName('rw').AsString:=rw.Text;
+                    Umain.Qhost1.Execute;
+
+                    DM.Qexec.close;
+                    DM.Qexec.SQL.Clear;
+                    DM.Qexec.SQL.Add('insert into pelanggan_lltt (nomorlltt,nosamb,nama,alamat,kodelltt,koderayon,kodekelurahan,kodekolektif,nohp,notelp,status,namapemilik,noktp,');
+                    DM.Qexec.SQL.Add('penghuni,flag,keterangan,nopendaftaran,norab,kodeblok,luasrumah,email,norumah,rt,rw,tgldaftar) ');
+                    DM.Qexec.SQL.add('VALUES');
+                    DM.Qexec.SQL.Add('(:nomorlltt,:nosamb,:nama,:alamat,:kodelltt,:koderayon,:kodekelurahan,:kodekolektif,:nohp,:notelp,:status,:namapemilik,:noktp,:penghuni,');
+                    DM.Qexec.SQL.Add(':flag,:keterangan,');
+                    DM.Qexec.SQL.Add(':nopendaftaran,:norab,:kodeblok,:luasrumah,:email,:norumah,:rt,:rw,:tgldaftar)');
+                    DM.Qexec.ParamByName('nomorlltt').AsString:=nomor.Text;
+                    DM.Qexec.ParamByName('nosamb').AsString:=nosamb.Text;
+                    DM.Qexec.ParamByName('nama').AsString:=nama.Text;
+                    DM.Qexec.ParamByName('alamat').AsString:=alamat.Text;
+                    DM.Qexec.ParamByName('kodelltt').AsString:=kodelltt.Text;
+                    DM.Qexec.ParamByName('koderayon').AsString:=koderayon.Text;
+                    DM.Qexec.ParamByName('kodekelurahan').AsString:=kodekelurahan.Text;
+                    DM.Qexec.ParamByName('kodekolektif').AsString:=kodekolektif.Text;
+                    DM.Qexec.ParamByName('nohp').AsString:=gsmcdma.Text;
+                    DM.Qexec.ParamByName('notelp').AsString:=telp.Text;
+                    DM.Qexec.ParamByName('status').AsInteger:=status.ItemIndex;
+                    DM.Qexec.ParamByName('noktp').AsString:=noktp.Text;
+                    DM.Qexec.ParamByName('penghuni').AsString:=penghuni.Text;
+                    DM.Qexec.ParamByName('flag').AsString:='1'; 
+                    DM.Qexec.ParamByName('keterangan').AsString:='-';
+                    DM.Qexec.ParamByName('nopendaftaran').AsString:=znopendaftaran;
+                    DM.Qexec.ParamByName('norab').AsString:=znorab;
+                    DM.Qexec.ParamByName('kodeblok').AsString:=kodeblok.Text;
+                    DM.Qexec.ParamByName('luasrumah').AsCurrency:=luasrumah.Value;
+                    DM.Qexec.ParamByName('email').AsString:=email.Text;
+                    DM.Qexec.ParamByName('norumah').AsString:=norumah.Text;
+                    DM.Qexec.ParamByName('rt').AsString:=rt.Text;
+                    DM.Qexec.ParamByName('rw').AsString:=rw.Text;
+                    DM.Qexec.ParamByName('tgldaftar').AsDate:=tgldaftar.date;
+                    DM.Qexec.Execute;
+
+
+                   if(znosambdaribshl='0')then
+                   begin
+
+
+                 
+
+                    Umain.Qhost1.close;
+                    Umain.Qhost1.SQL.Clear;
+                    Umain.Qhost1.SQL.Add('REPLACE INTO nosamb_lltt (nomor,nama,waktuupdate,uraian,koderayon) values (:nomor,:nama,NOW(),:uraian,:koderayon)');
+                    Umain.Qhost1.ParamByName('nomor').AsString:=nomor.Text;
+                    Umain.Qhost1.ParamByName('nama').AsString:=nama.Text;
+                    Umain.Qhost1.ParamByName('uraian').AsString:='Didapat saat Pengaktifan Pelanggan di BSBS';
+                    Umain.Qhost1.ParamByName('koderayon').AsString:=koderayon.Text;
+                    Umain.Qhost1.Execute;
+
+                   end;
+
+
+
+                    DM.Qexec.close;
+                    DM.Qexec.SQL.Clear;
+                    DM.Qexec.SQL.Add('INSERT INTO memo (nosamb,tanggal,tipe,waktuupdate,uraian) values (:nosamb,CONCAT(:tanggal," ",current_time),:tipe,NOW(),:uraian) ');
+                    DM.Qexec.ParamByName('nosamb').AsString:=nomor.Text;
+                    DM.Qexec.ParamByName('tanggal').AsDate:=tgldaftar.date;
+                    DM.Qexec.ParamByName('tipe').AsString:='Pelanggan Baru L2T2';
+                    DM.Qexec.ParamByName('uraian').AsString:='Pendaftaran pelanggan L2T2';
+                    DM.Qexec.Execute;
+
+                    DM.Qexec.close;
+                    DM.Qexec.SQL.Clear;
+                    DM.Qexec.SQL.Add('INSERT INTO memo (nosamb,tanggal,tipe,waktuupdate,uraian) values (:nosamb,CONCAT(:tanggal," ",current_time),:tipe,NOW(),:uraian) ');
+                    DM.Qexec.ParamByName('nosamb').AsString:=nomor.Text;
+                    DM.Qexec.ParamByName('tanggal').AsDate:=tgldaftar.date;
+                    DM.Qexec.ParamByName('tipe').AsString:='Aktif L2T2';
+                    DM.Qexec.ParamByName('uraian').AsString:='Pengaktifan pelanggan L2T2';
+                    DM.Qexec.Execute;  
+
+
+                    IF(DM.Xflag='Pengaktifan')then
+                    begin
+
+
+                         umain.Qhost1.close;
+                         umain.Qhost1.SQL.Clear;
+                         umain.Qhost1.SQL.Add('update rab_lltt set nosambyangdiberikan=:nosambyangdiberikan,kodelltt=:kodelltt,kodediameter=:kodediameter,koderayon=:koderayon,flagaktif="1",waktupengaktifan=NOW(),flagprosesdata="1",nosamb=:nosamb WHERE norab=:norab');
+                         umain.Qhost1.ParamByName('norab').AsString:=znorab;
+                         umain.Qhost1.ParamByName('nosambyangdiberikan').AsString:=nosamb.Text;
+                         umain.Qhost1.ParamByName('kodelltt').AsString:=kodelltt.Text;
+                         umain.Qhost1.ParamByName('koderayon').AsString:=koderayon.Text;
+                         umain.Qhost1.ParamByName('kodediameter').AsString:='';
+                         umain.Qhost1.ParamByName('nosamb').AsString:=nosamb.Text;
+                         umain.Qhost1.Execute;
+
+                         umain.Qhost1.close;
+                         umain.Qhost1.SQL.Clear;
+                         umain.Qhost1.SQL.Add('update nonair set dibebankankepada=:dibebankankepada,waktuupdate=NOW() WHERE nomor=:nomor');
+                         umain.Qhost1.ParamByName('nomor').AsString:=znorab;
+                         umain.Qhost1.ParamByName('dibebankankepada').AsString:=nosamb.Text;
+                         umain.Qhost1.Execute;
+
+
+                    end;
+
+
+                    DM.uraianlogakses:='Menambahkan Pelanggan Baru L2T2 '+nomor.Text;
+                    DM.targetlogakses:=nosamb.text;
+                    DM.logakses;
+
+                    ModalResult:=MrOk;
+
+
+
+
+            ////KOREKSI//----------------------------  
+           end
+           else
+           begin
+
+              lanjut:=0;
+
+              Qnosamb.Close;
+              Qnosamb.SQL.Clear;
+              Qnosamb.SQL.add('select * FROm nosamb_lltt WHERE  nomor=:nomor and nama<>:nama');
+              Qnosamb.ParamByName('nomor').AsString:=nomor.Text;
+              Qnosamb.ParamByName('nama').AsString:=DM.Xnama;
+              Qnosamb.Open;
+
+
+              if(Qnosamb.RecordCount>0) then
+              begin
+                MessageDlg('Nomor L2T2 Sudah digunakan oleh pelanggan '+Qnosamb.fieldbyname('nama').AsString+' !!!', mtWarning, [mbOK], 0);
+                exit;
+             end;
+
+                            Umain.Qhost1.close;
+                            Umain.Qhost1.SQL.Clear;
+                            Umain.Qhost1.SQL.Add('update pelanggan_lltt set');
+                            Umain.Qhost1.SQL.add('kodekolektif=:kodekolektif,koderayon=:koderayon,');
+                            Umain.Qhost1.SQL.add('waktuupdate=NOW(),luasrumah=:luasrumah,notelp=:notelp,nohp=:nohp,nosamb=:nosamb');
+                            Umain.Qhost1.SQL.add('where nomorlltt=:nomorlltt');
+                            Umain.Qhost1.ParamByName('nomorlltt').AsString:=nomor.Text;
+                            Umain.Qhost1.ParamByName('kodekolektif').AsString:=kodekolektif.Text;
+                            Umain.Qhost1.ParamByName('luasrumah').AsCurrency:=luasrumah.Value;
+                            Umain.Qhost1.ParamByName('notelp').AsString:=telp.Text;
+                            Umain.Qhost1.ParamByName('nohp').AsString:=gsmcdma.Text;
+                            Umain.Qhost1.ParamByName('nosamb').AsString:=nosamb.Text;
+                            Umain.Qhost1.ParamByName('koderayon').AsString:=koderayon.Text;   
+                            Umain.Qhost1.Execute;   
+
+
+                            DM.Qexec.close;
+                            DM.Qexec.SQL.Clear;
+                            DM.Qexec.SQL.Add('update pelanggan_lltt set nomorlltt=:nomorlltt,nosamb=:nosamb,');
+                            DM.Qexec.SQL.add('nama=:nama,alamat=:alamat,kodelltt=:kodelltt,');
+                            DM.Qexec.SQL.add('koderayon=:koderayon,kodekelurahan=:kodekelurahan,kodekolektif=:kodekolektif,');
+                            DM.Qexec.SQL.add('nohp=:nohp,notelp=:notelp,status=:status,noktp=:noktp,penghuni=:penghuni,');
+                            DM.Qexec.SQL.add('keterangan=:keterangan,kodeblok=:kodeblok,luasrumah=:luasrumah,email=:email,');
+                            DM.Qexec.SQL.add('norumah=:norumah,rt=:rt,rw=:rw');
+                            DM.Qexec.SQL.add('where nomorlltt=:nomorllttlama');
+                            DM.Qexec.ParamByName('nomorllttlama').AsString:=DM.Xnomorlltt;
+                            DM.Qexec.ParamByName('nomorlltt').AsString:=nomor.Text;
+                            DM.Qexec.ParamByName('nosamb').AsString:=nosamb.Text;
+                            DM.Qexec.ParamByName('nama').AsString:=nama.Text;
+                            DM.Qexec.ParamByName('alamat').AsString:=alamat.Text;
+                            DM.Qexec.ParamByName('kodelltt').AsString:=kodelltt.Text;
+                            DM.Qexec.ParamByName('koderayon').AsString:=koderayon.Text;
+                            DM.Qexec.ParamByName('kodekelurahan').AsString:=kodekelurahan.Text;
+                            DM.Qexec.ParamByName('kodekolektif').AsString:=kodekolektif.Text;
+                            DM.Qexec.ParamByName('nohp').AsString:=gsmcdma.Text;
+                            DM.Qexec.ParamByName('notelp').AsString:=telp.Text;
+                            DM.Qexec.ParamByName('status').AsInteger:=status.ItemIndex;
+                            DM.Qexec.ParamByName('noktp').AsString:=noktp.Text;
+                            DM.Qexec.ParamByName('penghuni').AsString:=penghuni.Text;
+                            DM.Qexec.ParamByName('keterangan').AsString:='-';
+                            DM.Qexec.ParamByName('kodeblok').AsString:=kodeblok.Text;
+                            DM.Qexec.ParamByName('luasrumah').AsCurrency:=luasrumah.Value;
+                            DM.Qexec.ParamByName('email').AsString:=email.Text;
+                            DM.Qexec.ParamByName('norumah').AsString:=norumah.Text;
+                            DM.Qexec.ParamByName('rt').AsString:=rt.Text;
+                            DM.Qexec.ParamByName('rw').AsString:=rw.Text;
+                            DM.Qexec.Execute;
+
+                            DM.uraianlogakses:='Koreksi Pelanggan L2T2 '+nomor.Text;
+                            DM.targetlogakses:=nomor.text;
+                            DM.logakses;
+
+                            ModalResult:=MrOk;
+
+
+
+          
+          end;
+
+
+           Umain.Qhost1.close;
+           Umain.Qhost1.SQL.Clear;
+           Umain.Qhost1.SQL.Add('COMMIT');
+           Umain.Qhost1.Execute; 
+
+
+
+           DM.Qexec.close;
+           DM.Qexec.SQL.Clear;
+           DM.Qexec.SQL.Add('COMMIT');
+           DM.Qexec.Execute;
+
+
+
+          EXCEPT ON E:Exception DO
+          BEGIN
+
+
+               Umain.Qhost1.close;
+               Umain.Qhost1.SQL.Clear;
+               Umain.Qhost1.SQL.Add('ROLLBACK');
+               Umain.Qhost1.Execute;
+
+               DM.Qexec.close;
+               DM.Qexec.SQL.Clear;
+               DM.Qexec.SQL.Add('ROLLBACK');
+               DM.Qexec.Execute;
+
+
+               MessageDlg('Terjadi Kesalahan : '+E.Message, mtError, [mbOk], 0);
+          END;
+          END;
+
+      FINALLY            
+          Enabled:=true;
+          Umain.host.close;
+      END;
+
+
+
+
+  
+
+
+
+end;
+
+procedure TUTpelangganlltt.cxButton1Click(Sender: TObject);
+begin
+
+
+         if kodekelurahan.Text='' then
+        begin
+            MessageDlg('Kelurahan harus diisi !!', mtWarning, [mbOK], 0);
+            kodekelurahan.SetFocus;
+            exit;
+        end;
+
+
+        QcekVPS.close;
+        QcekVPS.SQL.Clear;
+        Qcekvps.SQL.Add('select * FROM kelurahan WHERE kodekelurahan="'+kodekelurahan.Text+'"');
+        QcekVPS.Open;
+
+        Qnosamb.Close;
+        Qnosamb.SQL.Clear;
+        Qnosamb.SQL.Add('SELECT LPAD(MAX( CAST(RIGHT(p.nomor,5) AS UNSIGNED))+1,5,0) AS urutan FROM nosamb_lltt p  WHERE LEFT(nomor,3)=:kode');
+        Qnosamb.ParamByName('kode').AsString :=QcekVPS.fieldbyname('kodekecamatan').AsString+QcekVPS.fieldbyname('kodekelurahan').AsString;
+        Qnosamb.Open;
+
+        if (Qnosamb.fieldbyname('urutan').AsString='NULL') or (Qnosamb.fieldbyname('urutan').AsString='') then
+        nomor.Text:=QcekVPS.fieldbyname('kodekecamatan').AsString+QcekVPS.fieldbyname('kodekelurahan').AsString+'00001'
+        else
+        nomor.Text:=QcekVPS.fieldbyname('kodekecamatan').AsString+QcekVPS.fieldbyname('kodekelurahan').AsString+Qnosamb.fieldbyname('urutan').AsString;
+
+end;
+
+procedure TUTpelangganlltt.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  nosamb.Clear;
+  nomor.Clear;
+  kodelltt.Clear;
+  
+
+  nama.Clear;
+
+
+  koderayon.Clear;
+  namarayon.Clear;
+  alamat.Clear;
+
+  kodekolektif.Clear;
+  kolektif.Clear;
+  gsmcdma.Clear;
+  telp.Clear;
+  tgldaftar.Clear;
+
+  status.ItemIndex:=1;
+  //nosamb.SetFocus;
+  kodekelurahan.Clear;
+  kelurahan.Clear; 
+
+  kepemilikan.Clear;
+  namapemilik.Clear;
+
+  noktp.Clear;
+  penghuni.Clear;
+
+  kodeblok.Clear;
+  luasrumah.Value:=0;
+  email.Clear;
+
+  norumah.Clear;
+  rt.Clear;
+  rw.Clear;
+
+
+end;
+
+procedure TUTpelangganlltt.kodekelurahanPropertiesChange(Sender: TObject);
+begin
+kelurahan.ItemIndex:=kodekelurahan.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.kelurahanPropertiesChange(Sender: TObject);
+begin
+kodekelurahan.ItemIndex:=kelurahan.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.kodeblokPropertiesChange(Sender: TObject);
+begin
+namablok.ItemIndex:=kodeblok.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.namablokPropertiesChange(Sender: TObject);
+begin
+kodeblok.ItemIndex:=namablok.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.RzPanel8MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  SC_DRAGMOVE=$F012;
+begin
+
+   if Button=mbLeft then
+  begin
+    ReleaseCapture;
+    Perform(WM_SYSCOMMAND,SC_DRAGMOVE,0);
+  end;
+
+end;
+
+procedure TUTpelangganlltt.cekhanyamelengkapidataClick(Sender: TObject);
+begin
+if(cekhanyamelengkapidata.Checked=true)then
+begin
+    alamat.Enabled:=true;
+    norumah.Enabled:=true;
+    rt.Enabled:=true;
+    rw.Enabled:=true;
+    nosamb.Enabled:=true;
+
+end
+else
+begin
+
+    alamat.Enabled:=false;
+    norumah.Enabled:=false;
+    rt.Enabled:=false;
+    rw.Enabled:=false;
+    nosamb.Enabled:=false;  
+end;
+end;
+
+
+
+procedure TUTpelangganlltt.kodellttPropertiesChange(Sender: TObject);
+begin
+golonganlltt.ItemIndex:=kodelltt.ItemIndex;
+end;
+
+procedure TUTpelangganlltt.golonganllttPropertiesChange(Sender: TObject);
+begin
+kodelltt.ItemIndex:=golonganlltt.ItemIndex;
+end;
+
+end.

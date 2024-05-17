@@ -1,0 +1,59 @@
+= SiPintar BSBS ver 4
+
+== Overview
+
+Berisi deskripsi, etimologi penamaan, dan fungsi sistem yang dijabarkan secara singkat. Sekaligus memuat informasi tentang tujuan pengembangan sistem.
+
+== Team Involved
+
+Berikut adalah nama-nama yang terlibat dalam pengembangan sistem SiPintar BSBS ver 4. Masing-masing sudah dilengkapi dengan alamat email yang dapat dihubungi jika diperlukan. 
+
+
+|===
+| *Name* | *Role* | *Email*
+|  |  | 
+|===
+
+== Technical Information
+
+Berisi informasi teknis tentang sistem, adapun informasi yang dicantumkan harus menyesuaikan dengan kebutuhan.
+
+<<docs/url-SiPintar-BSBS-ver-4.adoc#, System URL SiPintar BSBS ver 4>>
+
+<<docs/architecture-SiPintar-BSBS-ver-4.adoc#, Architecture SiPintar BSBS ver 4>>
+
+<<docs/technology-SiPintar-BSBS-ver-4.adoc#, Technology SiPintar BSBS ver 4>>
+
+<<docs/environment-SiPintar-BSBS-ver-4.adoc#, Environment SiPintar BSBS ver 4>>
+
+<<docs/database-SiPintar-BSBS-ver-4.adoc#, Database Documentation SiPintar BSBS ver 4>>
+
+<<docs/release-deploy-SiPintar-BSBS-ver-4.adoc#, Release and Deployment SiPintar BSBS ver 4>>
+
+<<docs/flow-wire-SiPintar-BSBS-ver-4.adoc#, Flow and Wireframe SiPintar BSBS ver 4>>
+
+== Onboarding Information
+
+<<docs/dev-onboarding-SiPintar-BSBS-ver-4.adoc#, Developer Onboarding SiPintar BSBS ver 4>>
+
+<<docs/development-SiPintar-BSBS-ver-4.adoc#, Development SiPintar BSBS ver 4>>
+
+<<docs/naming-convention-SiPintar-BSBS-ver-4.adoc#, Naming Convention SiPintar BSBS ver 4>>
+
+== Documentation
+
+Berisi dokumen penunjang untuk penggunaan sistem. Berikut adalah dokumen yang biasa dimasukkan di dalamnya. Anda dapat memasukkan external link (Google Doc, Horven, Swagger, maupun lainnya dalam daftar dokumen berikut:
+
+User Guide (jika ada, external link)
+
+Dokumen Integrasi (jika ada, external link)
+
+Dokumen Maintenance (jika ada, external link)
+
+Dokumen API (jika ada, external link)
+
+<<docs/adr-doc-SiPintar-BSBS-ver-4.adoc#, ADR Document SiPintar BSBS ver 4>>
+
+<<docs/product-information-SiPintar-BSBS-ver-4.adoc#, Product Information Document SiPintar BSBS ver 4>>
+
+<<docs/release-note-SiPintar-BSBS-ver-4.adoc#, Release Note SiPintar BSBS ver 4>>

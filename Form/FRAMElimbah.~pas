@@ -1,0 +1,372 @@
+unit FRAMElimbah;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, 
+  Dialogs, ExtCtrls, RzPanel, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkiniMaginary,
+  dxSkinOffice2013White, cxContainer, cxEdit, dxSkinscxPCPainter,
+  cxPCdxBarPopupMenu, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxNavigator, DB, cxDBData, cxCurrencyEdit, ComCtrls,
+  dxCore, cxDateUtils, Menus, StdCtrls, cxButtons, RzDTP, cxDropDownEdit,
+  cxCalendar, cxMaskEdit, cxCheckBox, cxGridChartView, cxGridDBChartView,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxGridCustomView, cxGrid, cxImage, cxPC, cxMemo, cxTextEdit,
+  cxLabel, cxGroupBox, cxScrollBox, RzSplit, cxImageComboBox;
+
+type
+  TFRlimbah = class(TFrame)
+    info: TRzPanel;
+    RzSizePanel1: TRzSizePanel;
+    cxScrollBox1: TcxScrollBox;
+    RzPanel1: TRzPanel;
+    cxGroupBox5: TcxGroupBox;
+    cxLabel60: TcxLabel;
+    b1: TcxCurrencyEdit;
+    b2: TcxCurrencyEdit;
+    b3: TcxCurrencyEdit;
+    b4: TcxCurrencyEdit;
+    p1: TcxCurrencyEdit;
+    p2: TcxCurrencyEdit;
+    p3: TcxCurrencyEdit;
+    p4: TcxCurrencyEdit;
+    cxLabel62: TcxLabel;
+    b5: TcxCurrencyEdit;
+    p5: TcxCurrencyEdit;
+    cxGroupBox6: TcxGroupBox;
+    pakai: TcxCurrencyEdit;
+    bpakai: TcxCurrencyEdit;
+    adm: TcxCurrencyEdit;
+    retribusi: TcxCurrencyEdit;
+    pemeliharaan: TcxCurrencyEdit;
+    pelayanan: TcxCurrencyEdit;
+    airlimbah: TcxCurrencyEdit;
+    cxLabel32: TcxLabel;
+    cxLabel42: TcxLabel;
+    cxLabel43: TcxLabel;
+    cxLabel44: TcxLabel;
+    cxLabel45: TcxLabel;
+    cxLabel46: TcxLabel;
+    cxLabel48: TcxLabel;
+    dendapakai0: TcxCurrencyEdit;
+    cxLabel54: TcxLabel;
+    cxLabel55: TcxLabel;
+    dendatunggakan: TcxCurrencyEdit;
+    cxLabel9: TcxLabel;
+    rekair: TcxCurrencyEdit;
+    meterai: TcxCurrencyEdit;
+    cxLabel20: TcxLabel;
+    cxLabel7: TcxLabel;
+    total: TcxCurrencyEdit;
+    angsuran: TcxCurrencyEdit;
+    cxLabel12: TcxLabel;
+    cxLabel33: TcxLabel;
+    ppn: TcxCurrencyEdit;
+    cxGroupBox4: TcxGroupBox;
+    Sta: TcxLabel;
+    xstatus: TcxTextEdit;
+    xnosamb: TcxTextEdit;
+    cxLabel8: TcxLabel;
+    cxLabel10: TcxLabel;
+    xnama: TcxTextEdit;
+    xkodegol: TcxTextEdit;
+    cxLabel28: TcxLabel;
+    xkodedia: TcxTextEdit;
+    sasa: TcxLabel;
+    xkoderayon: TcxTextEdit;
+    cxLabel29: TcxLabel;
+    cxLabel13: TcxLabel;
+    xalamat: TcxMemo;
+    cxLabel14: TcxLabel;
+    cxLabel51: TcxLabel;
+    xnorek: TcxTextEdit;
+    xrayon: TcxMemo;
+    cxLabel17: TcxLabel;
+    xkodewil: TcxTextEdit;
+    xwilayah: TcxTextEdit;
+    cxLabel18: TcxLabel;
+    cxLabel19: TcxLabel;
+    kelainan: TcxTextEdit;
+    cxLabel21: TcxLabel;
+    xkodeadmlain: TcxTextEdit;
+    cxLabel23: TcxLabel;
+    xkodepemlain: TcxTextEdit;
+    cxLabel26: TcxLabel;
+    xkoderetlain: TcxTextEdit;
+    RzPanel17: TRzPanel;
+    RzPanel19: TRzPanel;
+    RzPanel20: TRzPanel;
+    cxPageControl1: TcxPageControl;
+    cxTabSheet1: TcxTabSheet;
+    RzPanel7: TRzPanel;
+    foto1: TcxImage;
+    cxTabSheet3: TcxTabSheet;
+    RzPanel8: TRzPanel;
+    foto2: TcxImage;
+    cxTabSheet2: TcxTabSheet;
+    RzPanel9: TRzPanel;
+    foto3: TcxImage;
+    cxTabSheet4: TcxTabSheet;
+    RzPanel10: TRzPanel;
+    foto4: TcxImage;
+    RzPanel21: TRzPanel;
+    RzPanel16: TRzPanel;
+    cxGrid1: TcxGrid;
+    gtvpiutang: TcxGridDBTableView;
+    gtvpiutangColumn1: TcxGridDBColumn;
+    gtvpiutangColumn3: TcxGridDBColumn;
+    gtvpiutangColumn2: TcxGridDBColumn;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid3: TcxGrid;
+    cxGridDBChartView1: TcxGridDBChartView;
+    cxGridDBChartView1DataGroup1: TcxGridDBChartDataGroup;
+    cxGridDBChartView1Series1: TcxGridDBChartSeries;
+    cxGridLevel2: TcxGridLevel;
+    RzPanel5: TRzPanel;
+    RzSizePanel2: TRzSizePanel;
+    cxScrollBox2: TcxScrollBox;
+    RzPanel13: TRzPanel;
+    cekgolongan: TcxCheckBox;
+    cekdiameter: TcxCheckBox;
+    cekrayon: TcxCheckBox;
+    ceknosamb: TcxCheckBox;
+    ceknama: TcxCheckBox;
+    cekalamat: TcxCheckBox;
+    cekkolektif: TcxCheckBox;
+    kolektif: TcxComboBox;
+    alamat: TcxTextEdit;
+    nama: TcxTextEdit;
+    nosamb: TcxTextEdit;
+    kodediameter: TcxComboBox;
+    ukuran: TcxComboBox;
+    kodegol: TcxComboBox;
+    golongan: TcxComboBox;
+    namarayon: TcxComboBox;
+    koderayon: TcxComboBox;
+    tglbayar1: TcxDateEdit;
+    cektglbayar: TcxCheckBox;
+    cekrekair: TcxCheckBox;
+    rekair1: TcxCurrencyEdit;
+    rekair2: TcxCurrencyEdit;
+    tglbayar2: TcxDateEdit;
+    cxLabel80: TcxLabel;
+    cxLabel5: TcxLabel;
+    ceklainnya: TcxCheckBox;
+    lainnya: TcxComboBox;
+    wilayah: TcxComboBox;
+    kodewil: TcxComboBox;
+    cekwilayah: TcxCheckBox;
+    cekkasir: TcxCheckBox;
+    kasir: TcxComboBox;
+    cekloket: TcxCheckBox;
+    loket: TcxComboBox;
+    cekflag: TcxCheckBox;
+    cekpakai: TcxCheckBox;
+    pakai1: TcxCurrencyEdit;
+    cxLabel31: TcxLabel;
+    pakai2: TcxCurrencyEdit;
+    kodekolektif: TcxComboBox;
+    kodeflag: TcxComboBox;
+    flag: TcxComboBox;
+    RzPanel22: TRzPanel;
+    ceknorek: TcxCheckBox;
+    norekening: TcxTextEdit;
+    cekkondisimeter: TcxCheckBox;
+    kodekondisi: TcxComboBox;
+    kondisimeter: TcxComboBox;
+    RzPanel3: TRzPanel;
+    RzPanel6: TRzPanel;
+    periode: TRzDateTimePicker;
+    cxLabel4: TcxLabel;
+    cekstatus: TcxCheckBox;
+    status: TcxComboBox;
+    pindahperiode: TcxButton;
+    tampilkan: TcxButton;
+    limit: TcxCurrencyEdit;
+    cxLabel3: TcxLabel;
+    RzPanel2: TRzPanel;
+    Gridrek: TcxGrid;
+    Gtvrek: TcxGridDBTableView;
+    Gtvrekflagpublish: TcxGridDBColumn;
+    GtvrekColumn20: TcxGridDBColumn;
+    Gtvreknama: TcxGridDBColumn;
+    Gtvrekgolongan: TcxGridDBColumn;
+    Gtvrekukuran: TcxGridDBColumn;
+    Gtvrekkodecabang: TcxGridDBColumn;
+    Gtvrekcabang: TcxGridDBColumn;
+    Gtvreknamarayon: TcxGridDBColumn;
+    GtvrekColumn12: TcxGridDBColumn;
+    GtvrekColumn5: TcxGridDBColumn;
+    GtvrekColumn1: TcxGridDBColumn;
+    GtvrekColumn13: TcxGridDBColumn;
+    GtvrekColumn14: TcxGridDBColumn;
+    Gtvrekkodekolektif: TcxGridDBColumn;
+    Gtvrekkolektif: TcxGridDBColumn;
+    GtvrekColumn31: TcxGridDBColumn;
+    GtvrekColumn32: TcxGridDBColumn;
+    GtvrekColumn30: TcxGridDBColumn;
+    GtvrekColumn10: TcxGridDBColumn;
+    Gtvrekstanlalu: TcxGridDBColumn;
+    Gtvrekstanskrg: TcxGridDBColumn;
+    Gtvrekstanangkat: TcxGridDBColumn;
+    Gtvrekpakai: TcxGridDBColumn;
+    GtvrekColumn11: TcxGridDBColumn;
+    Gtvrekbiayapemakaian: TcxGridDBColumn;
+    GtvrekColumn33: TcxGridDBColumn;
+    GtvrekColumn34: TcxGridDBColumn;
+    Gtvrekmeterai: TcxGridDBColumn;
+    Gtvrektotalrekening: TcxGridDBColumn;
+    Gtvrekflagkoreksi: TcxGridDBColumn;
+    GtvrekColumn15: TcxGridDBColumn;
+    GtvrekColumn16: TcxGridDBColumn;
+    Gtvrekkoderayon: TcxGridDBColumn;
+    Gtvrekalamat: TcxGridDBColumn;
+    GtvrekColumn35: TcxGridDBColumn;
+    Gtvrekpelayanan: TcxGridDBColumn;
+    Gtvrekairlimbah: TcxGridDBColumn;
+    Gtvrekdendapakai0: TcxGridDBColumn;
+    Gtvrekdendatunggakan: TcxGridDBColumn;
+    GtvrekColumn37: TcxGridDBColumn;
+    GtvrekColumn8: TcxGridDBColumn;
+    Gtvrektglkoreksi: TcxGridDBColumn;
+    Gtvrekuserkoreksi: TcxGridDBColumn;
+    Gtvrektglpublish: TcxGridDBColumn;
+    Gtvrekuserpublish: TcxGridDBColumn;
+    Gtvrekflaglunas: TcxGridDBColumn;
+    Gtvreknolpp: TcxGridDBColumn;
+    Gtvrekflagbatal: TcxGridDBColumn;
+    gtvrekflagaktif: TcxGridDBColumn;
+    GtvrekColumn2: TcxGridDBColumn;
+    GtvrekColumn9: TcxGridDBColumn;
+    GtvrekColumn17: TcxGridDBColumn;
+    GtvrekColumn19: TcxGridDBColumn;
+    Gtvrekserimeter: TcxGridDBColumn;
+    Gtvrekflag: TcxGridDBColumn;
+    Gtvrekkasir: TcxGridDBColumn;
+    Gtvrekloketbayar: TcxGridDBColumn;
+    Gtvrektglbayar: TcxGridDBColumn;
+    Gtvrektglbatal: TcxGridDBColumn;
+    GtvrekColumn21: TcxGridDBColumn;
+    GtvrekColumn4: TcxGridDBColumn;
+    Gtvrekkelainan: TcxGridDBColumn;
+    GtvrekColumn6: TcxGridDBColumn;
+    GtvrekColumn3: TcxGridDBColumn;
+    Gtvrekaktif: TcxGridDBColumn;
+    GtvrekColumn7: TcxGridDBColumn;
+    GtvrekColumn25: TcxGridDBColumn;
+    GtvrekColumn18: TcxGridDBColumn;
+    GtvrekColumn22: TcxGridDBColumn;
+    GtvrekColumn23: TcxGridDBColumn;
+    GtvrekColumn24: TcxGridDBColumn;
+    GridrekLevel1: TcxGridLevel;
+    RzPanel15: TRzPanel;
+    cxButton1: TcxButton;
+    terbitkanpelanggan: TcxButton;
+    refresh: TcxButton;
+    cxButton3: TcxButton;
+    publishsemua: TcxButton;
+    hitungulangrekening: TcxButton;
+    updatebcmeter: TcxButton;
+    unpublishsemua: TcxButton;
+    RzPanel23: TRzPanel;
+    cekserimeter: TcxCheckBox;
+    serimeter: TcxTextEdit;
+    cekwm: TcxCheckBox;
+    merkwm: TcxComboBox;
+    cekkelurahan: TcxCheckBox;
+    kodekelurahan: TcxComboBox;
+    kelurahan: TcxComboBox;
+    cabang: TcxComboBox;
+    kodecabang: TcxComboBox;
+    cekcabang: TcxCheckBox;
+    ceksumberair: TcxCheckBox;
+    cekkepemlilikan: TcxCheckBox;
+    kepemilikan: TcxComboBox;
+    sumberair: TcxComboBox;
+    nolpp: TcxTextEdit;
+    ceknolpp: TcxCheckBox;
+    cekcatat: TcxCheckBox;
+    namapembaca: TcxComboBox;
+    cekadmlain: TcxCheckBox;
+    kodeadm_lain: TcxComboBox;
+    adm_lain: TcxComboBox;
+    pem_lain: TcxComboBox;
+    kodepem_lain: TcxComboBox;
+    cekpemlain: TcxCheckBox;
+    cekretlain: TcxCheckBox;
+    koderet_lain: TcxComboBox;
+    ret_lain: TcxComboBox;
+    cektotal: TcxCheckBox;
+    total1: TcxCurrencyEdit;
+    total2: TcxCurrencyEdit;
+    cxLabel11: TcxLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+     procedure isicomborekening();
+  end;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TFRlimbah.isicomborekening();
+begin
+
+  ucombo.isikombo();
+
+  namarayon.properties.items:= Ucombo.namarayon.properties.items;
+  koderayon.properties.items:= Ucombo.koderayon.properties.items;
+
+  kodecabang.properties.items:= Ucombo.kodecabang.properties.items;
+  cabang.properties.items:= Ucombo.cabang.properties.items;
+
+  kodegol.properties.items:= Ucombo.kodegol.properties.items;
+  golongan.properties.items:= Ucombo.golongan.properties.items;
+
+  kodediameter.properties.items:= Ucombo.kodediameter.properties.items;
+  ukuran.properties.items:= Ucombo.ukuran.properties.items;
+
+  kodekolektif.properties.items:= Ucombo.kodekolektif.properties.items;
+  kolektif.properties.items:= Ucombo.kolektif.properties.items;
+
+  
+   kodekelurahan.properties.items:= Ucombo.kodekelurahan.properties.items;
+  kelurahan.properties.items:= Ucombo.kelurahan.properties.items;
+
+  kodewil.properties.items:= Ucombo.kodewil.properties.items;
+  wilayah.properties.items:= Ucombo.wilayah.properties.items;  
+
+  kasir.properties.items:= Ucombo.kasir.properties.items;
+  loket.properties.items:= Ucombo.kodeloket.properties.items;
+
+
+  merkwm.properties.items:= Ucombo.merk.properties.items;
+
+  kepemilikan.properties.items:= Ucombo.kepemilikan.properties.items;
+
+  sumberair.properties.items:= Ucombo.sumberair.properties.items;
+  flag.properties.items:= Ucombo.flag.properties.items;
+  kodeflag.properties.items:= Ucombo.kodeflag.properties.items;
+
+  kodeadm_lain.properties.items:= Ucombo.kodeadmlain.properties.items;
+  adm_lain.properties.items:= Ucombo.ketadmlain.properties.items;
+
+   kodepem_lain.properties.items:= Ucombo.kodepemlain.properties.items;
+  pem_lain.properties.items:= Ucombo.ketpemlain.properties.items;
+
+   koderet_lain.properties.items:= Ucombo.koderetlain.properties.items;
+  ret_lain.properties.items:= Ucombo.ketretlain.properties.items;
+
+  namapembaca.properties.items:= Ucombo.namapembaca.properties.items;
+
+   kodekondisi.properties.items:= Ucombo.kodekondisi.properties.items;
+  kondisimeter.properties.items:= Ucombo.kondisimeter.properties.items;
+
+
+end;
+
+end.

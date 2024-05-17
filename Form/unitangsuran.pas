@@ -1,0 +1,863 @@
+unit unitangsuran;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, RzPanel, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, Menus, dxSkinsCore, dxSkiniMaginary,
+  dxSkinOffice2013White, StdCtrls, cxButtons, cxControls, cxContainer,
+  cxEdit, cxMemo, cxTextEdit, cxLabel, cxCurrencyEdit, ActnList,
+  cxMaskEdit, cxDropDownEdit, cxStyles, dxSkinscxPCPainter, cxCustomData,
+  cxFilter, cxData, cxDataStorage, cxNavigator, DB, cxDBData, dxmdaset,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, DBAccess,
+  MyAccess, cxGridLevel, cxClasses, cxGridCustomView, cxGrid,
+  cxImageComboBox, MemDS, ComCtrls, dxCore, cxDateUtils, cxCalendar;
+
+type
+  Tuangsuran = class(TForm)
+    RzPanel1: TRzPanel;
+    ok: TcxButton;
+    no: TcxButton;
+    cxLabel1: TcxLabel;
+    noangsuran: TcxTextEdit;
+    carinomor: TcxButton;
+    cxLabel2: TcxLabel;
+    nama: TcxTextEdit;
+    cxLabel3: TcxLabel;
+    alamat: TcxMemo;
+    cxLabel5: TcxLabel;
+    cxLabel9: TcxLabel;
+    cxLabel10: TcxLabel;
+    pokok: TcxCurrencyEdit;
+    bunga: TcxCurrencyEdit;
+    cxLabel8: TcxLabel;
+    cxLabel6: TcxLabel;
+    cxLabel11: TcxLabel;
+    telp: TcxTextEdit;
+    cxLabel12: TcxLabel;
+    hp: TcxTextEdit;
+    ActionList1: TActionList;
+    Action1: TAction;
+    Action2: TAction;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    MyDataSource1: TMyDataSource;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxGrid1DBTableView1Column2: TcxGridDBColumn;
+    cxGrid1DBTableView1Column3: TcxGridDBColumn;
+    cxGrid1DBTableView1Column4: TcxGridDBColumn;
+    dxMemData1: TdxMemData;
+    dxMemData1bulan: TStringField;
+    dxMemData1kode: TStringField;
+    dxMemData1rekair: TCurrencyField;
+    dxMemData1denda: TCurrencyField;
+    dxMemData1total: TCurrencyField;
+    dxMemData1urutan: TIntegerField;
+    dxMemData1pilih: TStringField;
+    cxGrid1DBTableView1Column5: TcxGridDBColumn;
+    cxGrid1DBTableView1Column6: TcxGridDBColumn;
+    Qcek: TMyQuery;
+    cxButton2: TcxButton;
+    RzPanel2: TRzPanel;
+    RzPanel3: TRzPanel;
+    uangmuka: TcxCurrencyEdit;
+    mindp: TcxLabel;
+    dxMemData1periode: TStringField;
+    cxLabel4: TcxLabel;
+    dxMemData1administrasi: TCurrencyField;
+    dxMemData1pemeliharaan: TCurrencyField;
+    dxMemData1retribusi: TCurrencyField;
+    dxMemData1biayapemakaian: TCurrencyField;
+    cxGrid1DBTableView1Column7: TcxGridDBColumn;
+    cxGrid1DBTableView1Column8: TcxGridDBColumn;
+    cxGrid1DBTableView1Column9: TcxGridDBColumn;
+    cxGrid1DBTableView1Column10: TcxGridDBColumn;
+    minimaldp: TcxCurrencyEdit;
+    cxLabel13: TcxLabel;
+    info: TRzPanel;
+    nomor: TcxTextEdit;
+    cxGrid2: TcxGrid;
+    cxGridDBTableView1: TcxGridDBTableView;
+    cxGridDBColumn1: TcxGridDBColumn;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBColumn3: TcxGridDBColumn;
+    cxGridDBColumn4: TcxGridDBColumn;
+    cxGridDBColumn5: TcxGridDBColumn;
+    cxGridDBColumn6: TcxGridDBColumn;
+    cxGridDBColumn7: TcxGridDBColumn;
+    cxGridDBColumn8: TcxGridDBColumn;
+    cxGridDBColumn9: TcxGridDBColumn;
+    cxGridDBColumn10: TcxGridDBColumn;
+    cxGrid1DBTableView1Column11: TcxGridDBColumn;
+    cxGridLevel1: TcxGridLevel;
+    MyDataSource2: TMyDataSource;
+    rek: TdxMemData;
+    rekurutan: TStringField;
+    reknoangsuran: TStringField;
+    rektermin: TStringField;
+    rektotal: TCurrencyField;
+    rektglmulaitagih: TDateField;
+    rekketjenis: TStringField;
+    rekdibebankankepada: TStringField;
+    rekbiayapemakaian: TCurrencyField;
+    rekadministrasi: TCurrencyField;
+    rekpemeliharaan: TCurrencyField;
+    rekretribusi: TCurrencyField;
+    rekmeterai: TCurrencyField;
+    rekdendatunggakan: TCurrencyField;
+    cxGridDBTableView1Column1: TcxGridDBColumn;
+    dxMemData1meterai: TCurrencyField;
+    cxLabel14: TcxLabel;
+    dpbiayapemakaian: TcxCurrencyEdit;
+    lama: TcxCurrencyEdit;
+    sisabiayapemakaian: TcxCurrencyEdit;
+    cxLabel7: TcxLabel;
+    tanggal: TcxDateEdit;
+    procedure noClick(Sender: TObject);
+    procedure carinomorClick(Sender: TObject);
+    procedure okClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure pokokPropertiesChange(Sender: TObject);
+    procedure bungaPropertiesChange(Sender: TObject);
+    procedure cxGrid1DBTableView1CellDblClick(
+      Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure cxButton2Click(Sender: TObject);
+    procedure uangmukaPropertiesChange(Sender: TObject);
+    procedure lamaPropertiesChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+   
+  private
+    { Private declarations }
+    jumbiayapemakaian,jumadministrasi,jumpemeliharaan,jumretribusi,jumdenda,jummeterai:currency;
+  public
+    { Public declarations }
+    jenis:string;
+     urutanpilih:integer;
+     rekair,denda,total:Currency;
+     xkode:String;
+
+     procedure proses();
+
+
+
+  end;
+
+var
+  uangsuran: Tuangsuran;
+
+implementation
+
+uses Module, UnitMain,  RzStatus, UnitCombo,DateUtils, Math;
+
+{$R *.dfm}
+
+procedure Tuangsuran.noClick(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tuangsuran.carinomorClick(Sender: TObject);
+begin
+
+  DM.Qcek.close;
+  DM.Qcek.SQL.Clear;
+  DM.Qcek.SQL.Add('SELECT CONCAT( MID(UPPER(MD5(CONCAT(NOW(),"'+umain.user.Caption+'","bima"))),3,3) , MID(UPPER(MD5(CONCAT(NOW(),"'+umain.user.Caption+'","sakti"))),10,3), MID(UPPER(MD5(CONCAT(NOW(),"'+umain.user.Caption+'","sanjay4"))),8,4)) AS nomor ;');
+  DM.Qcek.Open;
+
+  noangsuran.Text:=DM.Qcek.fieldbyname('nomor').AsString;
+
+end;
+
+procedure Tuangsuran.okClick(Sender: TObject);
+var
+waktu:TdateTime;
+i,j:integer;
+begin
+
+ TRY
+  TRY
+
+     Enabled:=false;
+     waktu:=now;
+
+
+
+      if noangsuran.Text='' then
+      begin
+          MessageDlg('Harap isikan Nomor Angsuran !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+        if nomor.Text='' then
+      begin
+          MessageDlg('Harap isikan Nomor Sambungan Langganan !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+
+        if nama.Text='' then
+      begin
+          MessageDlg('Harap isikan nama !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+        if alamat.Text='' then
+      begin
+          MessageDlg('Harap isikan alamat !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+
+        if sisabiayapemakaian.Value<=0 then
+      begin
+          MessageDlg('Harap isikan sisa biaya pemakaian dengan benar !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+        if lama.Value<=0 then
+      begin
+          MessageDlg('Harap isikan lama angsuran dengan benar !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+
+      
+
+          if tanggal.Text='' then
+      begin
+          MessageDlg('Harap isikan Tanggal Mulai Ditagih !', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+          if (minimaldp.Value>uangmuka.Value) then
+      begin
+          MessageDlg('MINIMAL DP Rp. '+minimaldp.Text+ ' ...', mtWarning, [mbOK], 0);
+          exit;
+      end;
+
+
+
+
+
+       DM.Qexec.close;
+       DM.Qexec.SQL.Clear;
+       DM.Qexec.SQL.Add('START TRANSACTION');
+       DM.Qexec.Execute;
+
+
+      if(DM.Xkey='Tambah')then
+      begin
+
+
+          {DM.Qcek.close;
+          DM.Qcek.SQL.Clear;
+          DM.Qcek.SQL.Add('select *  FROM daftarangsuran WHERE flaglunas="0" AND nomor=:nomor');
+          DM.Qcek.ParamByName('nomor').AsString:=nomor.Text;
+          DM.Qcek.Open;
+
+          if(DM.Qcek.RecordCount>0) then
+          begin
+               MessageDlg('PENDAFTARAN ANGSURAN DITOLAK... !!'+char(13)+char(13)+
+               'Pelanggan dengan identitas '+nama.Text+'  '+nomor.Text+' masih mempunyai angsuran lain yang belum terlunasi...',mtwarning, [mbOK], 0);
+              exit;
+          end;}
+
+          DM.Qexec.close;
+          DM.Qexec.SQL.Clear;
+          DM.Qexec.SQL.Add('INSERT INTO daftarangsuran (noangsuran,nomor,nama,alamat,notelp,nohp,noreg,keperluan,waktudaftar,jumlahtermin,jumlahangsuranpokok,');
+          DM.Qexec.SQL.Add('jumlahangsuranbunga,jumlahuangmuka,jumlah,userdaftar,verifikasi,waktuverifikasi,userverifikasi,flagupload,waktuupload,flaglunas,dibebankankepada,tglmulaitagih)');
+          DM.Qexec.SQL.Add('VALUES                     (:noangsuran,:nomor,:nama,:alamat,:notelp,:nohp,:noreg,:keperluan,:waktudaftar,:jumlahtermin,:jumlahangsuranpokok,:jumlahangsuranbunga,:jumlahuangmuka,:jumlah,:user,"1",NOW(),:user,"0",null,"0",:dibebankankepada,:tglmulaitagih)');
+          DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+          DM.Qexec.ParamByName('nomor').AsString:=nomor.Text;
+          DM.Qexec.ParamByName('nama').AsString:=nama.Text;
+          DM.Qexec.ParamByName('alamat').AsString:=alamat.Text;
+          DM.Qexec.ParamByName('noreg').AsString:='-';
+          DM.Qexec.ParamByName('keperluan').AsString:='TUNGGAKAN';
+          DM.Qexec.ParamByName('jumlahtermin').AsCurrency:=lama.Value;
+          DM.Qexec.ParamByName('jumlahangsuranpokok').AsCurrency:=pokok.Value;
+          DM.Qexec.ParamByName('jumlahangsuranbunga').AsCurrency:=bunga.Value;
+          DM.Qexec.ParamByName('jumlahuangmuka').AsCurrency:=uangmuka.Value;
+          DM.Qexec.ParamByName('jumlah').AsCurrency:=sisabiayapemakaian.Value;
+          DM.Qexec.ParamByName('waktudaftar').AsDateTime:=waktu;
+          DM.Qexec.ParamByName('user').AsString:=Umain.user.Caption;
+          DM.Qexec.ParamByName('notelp').AsString:=telp.Text;
+          DM.Qexec.ParamByName('nohp').AsString:=hp.Text;
+          DM.Qexec.ParamByName('dibebankankepada').AsString:=nomor.Text;
+          DM.Qexec.ParamByName('tglmulaitagih').AsDateTime:=tanggal.date;
+          DM.Qexec.Execute;
+
+
+           DM.Qexec.close;
+           DM.Qexec.SQL.Clear;
+           DM.Qexec.SQL.Add('DELETE FROM detailrekangsur WHERE noangsuran=:noangsuran');
+           DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+           DM.Qexec.Execute;
+
+
+          dxMemData1.First;
+
+          for i:=1 to dxMemData1.RecordCount do
+          begin
+
+            if(dxMemData1pilih.Value='1')then
+            begin
+
+              DM.Qexec.close;
+              DM.Qexec.SQL.Clear;
+              DM.Qexec.SQL.Add('INSERT INTO detailrekangsur (id,xid,noangsuran,nomor,kode,periode,bulan,biayapemakaian,administrasi,pemeliharaan,retribusi,meterai,rekair,denda,total)');
+              DM.Qexec.SQL.Add('VALUES                       (null,:xid,:noangsuran,:nomor,:kode,:periode,:bulan,:biayapemakaian,:administrasi,:pemeliharaan,:retribusi,:meterai,:rekair,:denda,:total)');
+              DM.Qexec.ParamByName('xid').AsString:=IntToStr(i)+'.'+noangsuran.Text;
+              DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+              DM.Qexec.ParamByName('nomor').AsString:=nomor.Text;
+              DM.Qexec.ParamByName('kode').AsString:=dxMemData1kode.Value;
+              DM.Qexec.ParamByName('periode').AsString:=dxMemData1periode.Value;
+              DM.Qexec.ParamByName('bulan').AsString:=dxMemData1bulan.Value;
+              DM.Qexec.ParamByName('biayapemakaian').AsCurrency:=dxMemData1biayapemakaian.Value;
+              DM.Qexec.ParamByName('administrasi').AsCurrency:=dxMemData1administrasi.Value;
+              DM.Qexec.ParamByName('pemeliharaan').AsCurrency:=dxMemData1pemeliharaan.Value;
+              DM.Qexec.ParamByName('retribusi').AsCurrency:=dxMemData1retribusi.Value;
+              DM.Qexec.ParamByName('rekair').AsCurrency:=dxMemData1rekair.Value;
+              DM.Qexec.ParamByName('denda').AsCurrency:=dxMemData1denda.Value;
+              DM.Qexec.ParamByName('meterai').AsCurrency:=dxMemData1meterai.Value;
+              DM.Qexec.ParamByName('total').AsCurrency:=dxMemData1total.Value;
+              DM.Qexec.Execute;
+
+
+
+            end;
+
+            dxMemData1.Next;
+          end;
+
+      end
+      else
+      begin
+
+
+          DM.Qexec.close;
+          DM.Qexec.SQL.Clear;
+          DM.Qexec.SQL.Add('UPDATE daftarangsuran SET');
+          DM.Qexec.SQL.Add('waktukoreksi=:waktukoreksi,jumlahtermin=:jumlahtermin,jumlahangsuranpokok=:jumlahangsuranpokok,jumlahangsuranbunga=:jumlahangsuranbunga,jumlahuangmuka=:jumlahuangmuka,');
+          DM.Qexec.SQL.Add('jumlah=:jumlah,userkoreksi=:user,dibebankankepada=:dibebankankepada,tglmulaitagih=:tglmulaitagih WHERE noangsuran=:noangsuran');
+          DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+          DM.Qexec.ParamByName('jumlahtermin').AsCurrency:=lama.Value;
+          DM.Qexec.ParamByName('jumlahangsuranpokok').AsCurrency:=pokok.Value;
+          DM.Qexec.ParamByName('jumlahangsuranbunga').AsCurrency:=bunga.Value;
+          DM.Qexec.ParamByName('jumlahuangmuka').AsCurrency:=uangmuka.Value;
+          DM.Qexec.ParamByName('jumlah').AsCurrency:=sisabiayapemakaian.Value;
+          DM.Qexec.ParamByName('waktukoreksi').AsDateTime:=waktu;
+          DM.Qexec.ParamByName('user').AsString:=Umain.user.Caption;
+          DM.Qexec.ParamByName('dibebankankepada').AsString:=nomor.Text;
+          DM.Qexec.ParamByName('tglmulaitagih').AsDateTime:=tanggal.date;
+          DM.Qexec.Execute;
+
+
+
+           DM.Qexec.close;
+           DM.Qexec.SQL.Clear;
+           DM.Qexec.SQL.Add('DELETE FROM detailrekangsur WHERE noangsuran=:noangsuran');
+           DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+           DM.Qexec.Execute;
+
+
+          dxMemData1.First;
+
+          for i:=1 to dxMemData1.RecordCount do
+          begin
+
+            if(dxMemData1pilih.Value='1')then
+            begin
+            
+              DM.Qexec.close;
+              DM.Qexec.SQL.Clear;
+              DM.Qexec.SQL.Add('INSERT INTO detailrekangsur (id,xid,noangsuran,nomor,kode,periode,bulan,biayapemakaian,administrasi,pemeliharaan,retribusi,meterai,rekair,denda,total)');
+              DM.Qexec.SQL.Add('VALUES                       (null,:xid,:noangsuran,:nomor,:kode,:periode,:bulan,:biayapemakaian,:administrasi,:pemeliharaan,:retribusi,:meterai,:rekair,:denda,:total)');
+              DM.Qexec.ParamByName('xid').AsString:=IntToStr(i)+'.'+noangsuran.Text;
+              DM.Qexec.ParamByName('noangsuran').AsString:=noangsuran.Text;
+              DM.Qexec.ParamByName('nomor').AsString:=nomor.Text;
+              DM.Qexec.ParamByName('kode').AsString:=dxMemData1kode.Value;
+              DM.Qexec.ParamByName('periode').AsString:=dxMemData1periode.Value;
+              DM.Qexec.ParamByName('bulan').AsString:=dxMemData1bulan.Value;
+              DM.Qexec.ParamByName('biayapemakaian').AsCurrency:=dxMemData1biayapemakaian.Value;
+              DM.Qexec.ParamByName('administrasi').AsCurrency:=dxMemData1administrasi.Value;
+              DM.Qexec.ParamByName('pemeliharaan').AsCurrency:=dxMemData1pemeliharaan.Value;
+              DM.Qexec.ParamByName('retribusi').AsCurrency:=dxMemData1retribusi.Value;
+              DM.Qexec.ParamByName('rekair').AsCurrency:=dxMemData1rekair.Value;
+              DM.Qexec.ParamByName('denda').AsCurrency:=dxMemData1denda.Value;
+              DM.Qexec.ParamByName('meterai').AsCurrency:=dxMemData1meterai.Value;
+              DM.Qexec.ParamByName('total').AsCurrency:=dxMemData1total.Value;
+              DM.Qexec.Execute;
+
+            end;
+
+            dxMemData1.Next;
+          end;
+
+
+      end;
+
+
+
+
+         rek.First;
+      
+          for  j:=1 to rek.RecordCount do
+          begin
+
+              DM.Qexec.close;
+              DM.Qexec.SQL.Clear;
+              DM.Qexec.SQL.Add('INSERT INTO detailangsuran (noangsuran,nomor,termin,jumlah,ketjenis,dibebankankepada,tglmulaitagih,biayapemakaian,administrasi,pemeliharaan,retribusi,meterai,dendatunggakan) values ');
+              DM.Qexec.SQL.Add('(:noangsuran,:nomor,:termin,:jumlah,:ketjenis,:dibebankankepada,:tglmulaitagih,:biayapemakaian,:administrasi,:pemeliharaan,:retribusi,:meterai,:dendatunggakan)');
+              DM.Qexec.ParamByName('noangsuran').AsString:=reknoangsuran.AsString;
+              DM.Qexec.ParamByName('nomor').AsString:=nomor.Text;
+              DM.Qexec.ParamByName('termin').AsInteger:=StrToInt(rektermin.AsString);
+              DM.Qexec.ParamByName('ketjenis').AsString:=rekketjenis.AsString;
+              DM.Qexec.ParamByName('dibebankankepada').AsString:=rekdibebankankepada.AsString;
+              DM.Qexec.ParamByName('tglmulaitagih').AsDate:=rektglmulaitagih.AsDateTime;
+              DM.Qexec.ParamByName('biayapemakaian').AsCurrency:=rekbiayapemakaian.AsCurrency;
+              DM.Qexec.ParamByName('administrasi').AsCurrency:=rekadministrasi.AsCurrency;
+              DM.Qexec.ParamByName('pemeliharaan').AsCurrency:=rekpemeliharaan.AsCurrency;
+              DM.Qexec.ParamByName('retribusi').AsCurrency:=rekretribusi.AsCurrency;
+              DM.Qexec.ParamByName('dendatunggakan').AsCurrency:=rekdendatunggakan.AsCurrency;
+              DM.Qexec.ParamByName('meterai').AsCurrency:=rekmeterai.AsCurrency;
+              DM.Qexec.ParamByName('jumlah').AsCurrency:=rektotal.AsCurrency;
+              DM.Qexec.Execute;
+
+              rek.Next;
+          end;
+
+
+      DM.Qexec.close;
+      DM.Qexec.SQL.Clear;
+      DM.Qexec.SQL.Add('UPDATE pelanggan set adaangsuran="1" WHERE nosamb=:nosamb');
+      Dm.Qexec.ParamByName('nosamb').AsString:=nomor.Text;
+      DM.Qexec.Execute; 
+
+      DM.Qexec.close;
+      DM.Qexec.SQL.Clear;
+      DM.Qexec.SQL.Add('COMMIT');
+      DM.Qexec.Execute;
+
+      ModalResult:=MrOk;
+
+  EXCEPT ON E:Exception DO
+  BEGIN
+
+       DM.Qexec.close;
+       DM.Qexec.SQL.Clear;
+       DM.Qexec.SQL.Add('ROLLBACK');
+       DM.Qexec.Execute;
+
+       MessageDlg('Terjadi kesalahan : '+E.Message, mtError, [mbOK], 0);
+  END;
+  END;
+ FINALLY
+     Enabled:=true;
+ END;
+
+
+end;
+
+procedure Tuangsuran.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+noangsuran.Clear;
+nama.Clear;
+nomor.Clear;
+
+alamat.Clear;
+lama.Value:=0;
+pokok.Value:=0;
+bunga.Value:=0;
+sisabiayapemakaian.Value:=0;
+telp.Clear;
+hp.Clear;
+dxMemData1.close;
+Umain.host.close;
+uangmuka.Value:=0;
+tanggal.Clear;
+minimaldp.Value:=0;
+
+
+end;
+
+procedure Tuangsuran.pokokPropertiesChange(Sender: TObject);
+begin
+sisabiayapemakaian.Value:=(pokok.Value+bunga.Value)- uangmuka.Value;
+end;
+
+procedure Tuangsuran.bungaPropertiesChange(Sender: TObject);
+begin
+sisabiayapemakaian.Value:=(pokok.Value+bunga.Value)- uangmuka.Value;
+end;
+
+procedure Tuangsuran.cxGrid1DBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
+begin
+
+
+
+  if(dxMemData1.RecordCount>0)then
+  begin
+
+
+      dxMemData1.Edit;
+
+      if dxMemData1pilih.Value='0' then
+      begin
+
+
+         if(urutanpilih<>dxMemData1urutan.Value) then
+         begin
+            MessageDlg('Anda harus memilih urutan '+IntToStr(urutanpilih)+' terlebih dahulu !!', mtWarning, [mbOK], 0);
+            exit;
+         end;
+
+          dxMemData1pilih.Value:='1';
+          urutanpilih:=urutanpilih+1;
+          rekair:=rekair+dxMemData1rekair.Value;
+          denda:=denda+dxMemData1denda.Value;
+          total:=total+dxMemData1total.Value;
+
+          jumbiayapemakaian:=jumbiayapemakaian+ dxMemData1biayapemakaian.AsCurrency;
+          jumadministrasi:=jumadministrasi+ dxMemData1administrasi.AsCurrency;
+          jumpemeliharaan:=jumpemeliharaan+ dxMemData1pemeliharaan.AsCurrency;
+          jumretribusi:= jumretribusi+dxMemData1retribusi.AsCurrency;
+          jumdenda:=jumdenda+dxMemData1denda.AsCurrency;
+          jummeterai:=jummeterai+dxMemData1meterai.AsCurrency;
+
+
+           minimaldp.Value:=jumadministrasi+jumpemeliharaan+jumretribusi+jumdenda+jummeterai;
+           uangmuka.Value:=minimaldp.Value;
+
+
+      end
+      else
+      begin
+
+         if(urutanpilih-1<>dxMemData1urutan.Value) then
+         begin
+            MessageDlg('Anda harus memilih urutan '+IntToStr(urutanpilih-1)+' terlebih dahulu !!', mtWarning, [mbOK], 0);
+            exit;
+         end;
+
+
+          dxMemData1pilih.Value:='0';
+          urutanpilih:=urutanpilih-1;
+          rekair:=rekair-dxMemData1rekair.Value;
+          denda:=denda-dxMemData1denda.Value;
+          total:=total-dxMemData1total.Value;
+
+          jumbiayapemakaian:=jumbiayapemakaian- dxMemData1biayapemakaian.AsCurrency;
+          jumadministrasi:=jumadministrasi- dxMemData1administrasi.AsCurrency;
+          jumpemeliharaan:=jumpemeliharaan- dxMemData1pemeliharaan.AsCurrency;
+          jumretribusi:= jumretribusi-dxMemData1retribusi.AsCurrency;
+          jumdenda:=jumdenda-dxMemData1denda.AsCurrency;
+          jummeterai:=jummeterai - dxMemData1meterai.AsCurrency;
+
+
+           minimaldp.Value:=jumadministrasi+jumpemeliharaan+jumretribusi+jumdenda+jummeterai;
+           uangmuka.Value:=minimaldp.Value;
+
+      end;
+
+      dxMemData1.Post;
+
+
+      pokok.Value:=total;
+
+
+  end;
+
+end;
+
+procedure Tuangsuran.cxButton2Click(Sender: TObject);
+var
+j,i:integer;
+hari,banyakbulan:integer;
+denda1,denda2,dendatg:Currency;
+Paramtanggal:Tdate;
+begin
+
+
+              denda1:=0;
+              denda2:=0;
+              dendatg:=0;
+
+              jumbiayapemakaian:=0;
+              jumadministrasi:=0;
+              jumpemeliharaan:=0;
+              jumretribusi:=0;
+              jumdenda:=0;
+              jummeterai:=0;
+
+              rekair:=0;
+              denda:=0;
+              total:=0;
+
+             
+              nama.Clear;
+              alamat.Clear;
+              telp.Clear;
+              hp.Clear;
+              sisabiayapemakaian.Value:=0;
+              pokok.Value:=0;
+              bunga.Value:=0;
+              lama.Value:=0;
+              
+              
+              dxMemData1.Close;
+              dxMemData1.Open;
+
+
+              DM.Qcek.close;
+              DM.Qcek.SQL.Clear;
+              DM.Qcek.SQL.Add('select * FROM pelanggan WHERE nosamb = :nosamb');
+              DM.Qcek.ParamByName('nosamb').AsString:=nomor.Text;
+              DM.Qcek.Open;
+
+              if(DM.Qcek.RecordCount>0) then
+              begin
+               nama.Text:=DM.Qcek.fieldbyname('nama').AsString;
+               alamat.Text:=DM.Qcek.fieldbyname('alamat').AsString;
+               telp.Text:=DM.Qcek.fieldbyname('notelp').AsString;
+               hp.Text:=DM.Qcek.fieldbyname('nohp').AsString;
+              end
+              else
+              begin  
+
+                      exit;
+              end;
+
+
+
+
+              if(nama.Text<>'')then
+              begin
+              
+                  Qcek.close;
+                  Qcek.SQL.Clear;
+                  Qcek.SQL.Add('select * FROM drd WHERE nosamb = :nosamb and flaglunas="0" and flagangsur="0" ORDER BY periode ASC');
+                  Qcek.ParamByName('nosamb').AsString:=nomor.Text;
+                  Qcek.Open;
+
+
+
+                  if Qcek.RecordCount=0 then
+                  begin 
+                      exit;
+                  end;
+
+
+
+                  for j:=1 to Qcek.RecordCount do
+                  begin
+
+
+                      denda1:=0;
+                      denda2:=0;
+                      dendatg:=0;
+
+                      jumbiayapemakaian:=0;
+                      jumadministrasi:=0;
+                      jumpemeliharaan:=0;
+                      jumretribusi:=0;
+                      jumdenda:=0;
+                      jummeterai:=0;
+
+                      rekair:=0;
+                      denda:=0;
+                      total:=0;
+
+
+
+                       if(Qcek.fieldbyname('flag').AsString<>'2') then
+                       begin
+
+                        //denda biasa
+
+
+
+
+                          if (Qcek.fieldbyname('trf_dendatunggakan4').AsCurrency>0) and (date>=Qcek.fieldbyname('tglmulaidenda4').AsDateTime) then
+                              denda1:=Qcek.fieldbyname('trf_dendatunggakan4').AsCurrency
+                          else if (Qcek.fieldbyname('trf_dendatunggakan3').AsCurrency>0) and(date>=Qcek.fieldbyname('tglmulaidenda3').AsDateTime) then
+                              denda1:=Qcek.fieldbyname('trf_dendatunggakan3').AsCurrency
+                          else if (Qcek.fieldbyname('trf_dendatunggakan2').AsCurrency>0) and(date>=Qcek.fieldbyname('tglmulaidenda2').AsDateTime) then
+                              denda1:=Qcek.fieldbyname('trf_dendatunggakan2').AsCurrency
+                          else if (Qcek.fieldbyname('trf_dendatunggakan').AsCurrency>0) and(date>=Qcek.fieldbyname('tglmulaidenda').AsDateTime) then
+                              denda1:=Qcek.fieldbyname('trf_dendatunggakan').AsCurrency
+                          else
+                              denda1:=0;
+
+
+
+
+
+                      //denda progresif bulanan
+
+
+                           if(Qcek.fieldbyname('trf_dendatunggakanperbulan').AsCurrency>0) and (date>=Qcek.fieldbyname('tglmulaidendaperbulan').AsDateTime) then
+                           begin
+
+
+                           Paramtanggal:=DateOf(Qcek.fieldbyname('tglmulaidendaperbulan').AsDateTime);
+                           hari:=Trunc(date-DateOf(Qcek.fieldbyname('tglmulaidendaperbulan').AsDateTime));
+    
+                           banyakbulan:=1;
+
+                                for i:=1 to hari do
+                                begin
+
+                                    Paramtanggal:=IncDay(Paramtanggal,+1);
+
+                                    if(DayOf(Paramtanggal)=DayOf(DateOf(Qcek.fieldbyname('tglmulaidendaperbulan').AsDateTime)))then
+                                    begin
+                                      banyakbulan:=banyakbulan+1;
+                                    end;
+
+                                end;
+
+                           end
+                           else
+                            banyakbulan:=0;
+
+                         denda2:=banyakbulan*Qcek.fieldbyname('trf_dendatunggakanperbulan').AsCurrency;
+
+                         dendatg:=denda1+denda2;
+
+
+                      end
+                      else
+                         dendatg:=0;
+
+
+                      dxMemData1.Append;
+                      dxMemData1bulan.Value:=Qcek.fieldbyname('bulan').AsString;
+                      dxMemData1kode.Value:=Qcek.fieldbyname('kode').AsString;
+                      dxMemData1periode.Value:=Qcek.fieldbyname('periode').AsString;
+                      dxMemData1biayapemakaian.Value:=Qcek.fieldbyname('biayapemakaian').AsCurrency;
+                      dxMemData1administrasi.Value:=Qcek.fieldbyname('administrasi').AsCurrency+Qcek.fieldbyname('administrasilain').AsCurrency;
+                      dxMemData1pemeliharaan.Value:=Qcek.fieldbyname('pemeliharaan').AsCurrency+Qcek.fieldbyname('pemeliharaanlain').AsCurrency;
+                      dxMemData1retribusi.Value:=Qcek.fieldbyname('retribusi').AsCurrency+Qcek.fieldbyname('retribusilain').AsCurrency;
+                      dxMemData1meterai.Value:=Qcek.fieldbyname('meterai').AsCurrency;
+                      dxMemData1rekair.Value:=Qcek.fieldbyname('rekair').AsCurrency;
+                      dxMemData1denda.Value:=dendatg;
+                      dxMemData1total.Value:=Qcek.fieldbyname('rekair').AsCurrency+dendatg;
+                      dxMemData1urutan.Value:=j;
+                      dxMemData1pilih.Value:='0';
+
+                     
+                      dxMemData1.Post;
+                     Qcek.Next;
+                  end;
+              end;
+
+
+              dxMemData1.First;
+
+
+              urutanpilih:=1;
+              rekair:=0;
+              denda:=0;
+              total:=0;
+              proses;            
+
+
+
+end;
+
+procedure Tuangsuran.uangmukaPropertiesChange(Sender: TObject);
+begin
+sisabiayapemakaian.Value:=(pokok.Value+bunga.Value)- uangmuka.Value;
+dpbiayapemakaian.Value:=uangmuka.Value-minimaldp.Value;
+proses;
+end;
+
+procedure Tuangsuran.lamaPropertiesChange(Sender: TObject);
+begin
+  proses;
+end;
+
+procedure Tuangsuran.FormShow(Sender: TObject);
+begin
+tanggal.date:=date;
+end;
+
+procedure Tuangsuran.proses();
+var
+x:integer;
+begin
+
+  if(lama.Value>0)then
+  begin
+
+      rek.Close;
+      rek.Open;
+
+      for x:=0 to StrToInt(lama.Text) do
+      begin
+
+          rek.Append;
+          rekurutan.AsString:=noangsuran.Text+'.'+IntToStr(x);
+          reknoangsuran.AsString:=noangsuran.Text;
+          rekdibebankankepada.AsString:=nomor.Text;
+          rektglmulaitagih.AsDateTime:=IncMonth(tanggal.date,+x);
+
+
+          if(x=0) then
+          begin
+            rektermin.AsString:=IntToStr(x);
+            rekbiayapemakaian.AsCurrency:=dpbiayapemakaian.Value;
+            rekadministrasi.AsCurrency:=jumadministrasi;
+            rekpemeliharaan.AsCurrency:=jumpemeliharaan;
+            rekretribusi.AsCurrency:=jumretribusi;
+            rekmeterai.AsCurrency:= jummeterai;
+            rekdendatunggakan.AsCurrency:=jumdenda;
+            rektotal.AsCurrency:=dpbiayapemakaian.Value +
+                                 jumadministrasi +
+                                 jumpemeliharaan +
+                                 jumretribusi +
+                                 jummeterai +
+                                 jumdenda;
+
+            rekketjenis.AsString:='Uang Muka / '+CurrToStr(jumbiayapemakaian + jumadministrasi + jumpemeliharaan + jumretribusi + jummeterai + jumdenda )+' / '+lama.Text+' kali angsur...';
+
+
+
+          end
+          else
+          begin
+            rektermin.AsString:=IntToStr(x);
+            rekbiayapemakaian.AsCurrency:=sisabiayapemakaian.Value / lama.Value ;
+            rekadministrasi.AsCurrency:=0;
+            rekpemeliharaan.AsCurrency:=0;
+            rekretribusi.AsCurrency:=0;
+            rekmeterai.AsCurrency:=0;
+            rektotal.AsCurrency:= sisabiayapemakaian.Value / lama.Value ;
+            rekketjenis.AsString:='Angsuran ke '+IntToStr(x);
+
+          end;
+
+          rek.Post;
+
+
+      end;
+
+
+  end
+  else
+    rek.close;
+  
+end;
+
+
+end.
+
+
+
