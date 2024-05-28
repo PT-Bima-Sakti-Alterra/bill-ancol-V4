@@ -2749,7 +2749,7 @@ object Umain: TUmain
     TabOrder = 2
     VisualStyle = vsGradient
     object RzClockStatus2: TRzClockStatus
-      Left = 143
+      Left = 146
       Top = 0
       Width = 73
       Height = 19
@@ -2766,7 +2766,7 @@ object Umain: TUmain
       BlinkIntervalOn = 600
     end
     object user: TRzFieldStatus
-      Left = 323
+      Left = 326
       Top = 0
       Width = 87
       Height = 19
@@ -2785,7 +2785,7 @@ object Umain: TUmain
     object RzClockStatus3: TRzClockStatus
       Left = 0
       Top = 0
-      Width = 127
+      Width = 130
       Height = 19
       Align = alLeft
       Font.Charset = ANSI_CHARSET
@@ -2800,7 +2800,7 @@ object Umain: TUmain
       BlinkIntervalOn = 600
     end
     object lblPicUser: TRzFieldStatus
-      Left = 251
+      Left = 254
       Top = 0
       Width = 72
       Height = 19
@@ -2888,7 +2888,7 @@ object Umain: TUmain
       Caption = 'ID'
     end
     object RzDBStateStatus1: TRzDBStateStatus
-      Left = 232
+      Left = 235
       Top = 0
       Width = 19
       Height = 19
@@ -2897,7 +2897,7 @@ object Umain: TUmain
       BlinkIntervalOn = 600
     end
     object RzStatusPane6: TRzStatusPane
-      Left = 444
+      Left = 447
       Top = 0
       Height = 19
       Align = alLeft
@@ -2941,7 +2941,7 @@ object Umain: TUmain
       Caption = 'NoID'
     end
     object con: TRzFieldStatus
-      Left = 410
+      Left = 413
       Top = 0
       Width = 34
       Height = 19
@@ -2959,7 +2959,7 @@ object Umain: TUmain
       Caption = 'N/A'
     end
     object cxImage4: TcxImage
-      Left = 127
+      Left = 130
       Top = 0
       Align = alLeft
       AutoSize = True
@@ -2993,7 +2993,7 @@ object Umain: TUmain
       Transparent = True
     end
     object cxImage7: TcxImage
-      Left = 216
+      Left = 219
       Top = 0
       Align = alLeft
       AutoSize = True
