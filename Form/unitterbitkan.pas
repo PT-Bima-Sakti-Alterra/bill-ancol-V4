@@ -294,7 +294,7 @@ begin
 
                     Qgol.close;
                     Qgol.SQL.Clear;
-                    Qgol.SQL.Add('SELECT * FROM golongan WHERE kodegol=:kodegol AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
+                    Qgol.SQL.Add('SELECT * FROM golongan WHERE kodegol=:kodegol AND periodemulaiberlaku<='+FormatDateTime('YYYYMM',periode.date)+' AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
                     Qgol.ParamByName('kodegol').AsString:=data_kodegol.AsString;
                     Qgol.Open;
 
@@ -318,7 +318,7 @@ begin
 
                     QgolIPL.close;
                     QgolIPL.SQL.Clear;
-                    QgolIPL.SQL.Add('SELECT kodegolyangberlaku FROM golongan_ipl WHERE kodegol=:kodegolipl AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
+                    QgolIPL.SQL.Add('SELECT kodegolyangberlaku FROM golongan_ipl WHERE kodegol=:kodegolipl AND periodemulaiberlaku<='+FormatDateTime('YYYYMM',periode.date)+' AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
                     QgolIPL.ParamByName('kodegolipl').AsString:=data_kodeipl.AsString;
                     QgolIPL.Open;
                      if(QgolIPL.RecordCount>0)then
@@ -330,7 +330,7 @@ begin
 
                     Qdiameter.close;
                     Qdiameter.SQL.Clear;
-                    Qdiameter.SQL.Add('SELECT * FROM diameter WHERE kodediameter=:kodediameter AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
+                    Qdiameter.SQL.Add('SELECT * FROM diameter WHERE kodediameter=:kodediameter AND periodemulaiberlaku<='+FormatDateTime('YYYYMM',periode.date)+' AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
                     Qdiameter.ParamByName('kodediameter').AsString:=data_kodediameter.AsString;
                     Qdiameter.Open;
 
@@ -396,7 +396,7 @@ begin
                     Qexec.ParamByName('koderetribusilain').AsString:= kodeIPLyangberlaku;
                     Qexec.ParamByName('waktu').AsDateTime := now;
                     Qexec.ParamByName('kodeblok').AsString:= Qcek.fieldbyname('kodeblok').AsString;
-                    Qexec.ParamByName('luasrumah').AsString:= Qcek.fieldbyname('luasrumah').AsString;
+                    Qexec.ParamByName('luasrumah').Value:= Qcek.fieldbyname('luasrumah').Value;
                     Qexec.Execute;
 
 

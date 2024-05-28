@@ -691,7 +691,6 @@ object uterbitkan: Tuterbitkan
     object dxComponentPrinter1Link1: TdxGridReportLink
       Active = True
       Component = Gridpel
-      PageNumberFormat = pnfNumeral
       PrinterPage.DMPaper = 9
       PrinterPage.Footer = 6350
       PrinterPage.GrayShading = True
@@ -706,9 +705,8 @@ object uterbitkan: Tuterbitkan
       PrinterPage.ScaleMode = smFit
       PrinterPage._dxMeasurementUnits_ = 0
       PrinterPage._dxLastMU_ = 2
-      ReportDocument.CreationDate = 45337.630201122690000000
+      ReportDocument.CreationDate = 45432.484440405090000000
       ShrinkToPageWidth = True
-      AssignedFormatValues = [fvDate, fvTime, fvPageNumber]
       OptionsCards.AutoWidth = True
       OptionsCards.Borders = False
       OptionsFormatting.UseNativeStyles = True

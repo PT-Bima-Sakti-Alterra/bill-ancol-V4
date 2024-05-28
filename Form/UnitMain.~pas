@@ -3910,6 +3910,12 @@ begin
           Application.ProcessMessages;
           Qcek.Next;
         end;
+        DM.Qexec.close;
+        DM.Qexec.SQL.Clear;
+        DM.Qexec.SQL.Add('UPDATE prosesdownload SET last_pelanggan=:last_pelanggan WHERE idx="1"');
+        DM.Qexec.ParamByName('last_pelanggan').AsDateTime:=waktuupdateterbaru;
+        DM.Qexec.Execute;
+
         loadingMain.Hide;
       end;
 
@@ -3996,15 +4002,17 @@ begin
           Application.ProcessMessages;
           Qcek.Next;
         end;
+
+        DM.Qexec.close;
+        DM.Qexec.SQL.Clear;
+        DM.Qexec.SQL.Add('UPDATE prosesdownload SET last_pelanggan=:last_pelanggan WHERE idx="1"');
+        DM.Qexec.ParamByName('last_pelanggan').AsDateTime:=waktuupdateterbaru;
+        DM.Qexec.Execute;
+        loadingMain.Hide;
+
       end;
 
-      DM.Qexec.close;
-      DM.Qexec.SQL.Clear;
-      DM.Qexec.SQL.Add('UPDATE prosesdownload SET last_pelanggan=:last_pelanggan WHERE idx="1"');
-      DM.Qexec.ParamByName('last_pelanggan').AsDateTime:=waktuupdateterbaru;
-      DM.Qexec.Execute;
-      loadingMain.Hide;
-      
+
       DM.Qexec.close;
       DM.Qexec.SQL.Clear;
       DM.Qexec.SQL.Add('COMMIT;');

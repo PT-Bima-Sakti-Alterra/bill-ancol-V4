@@ -2881,8 +2881,8 @@ object FRrekening: TFRrekening
           Enabled = False
           ParentFont = False
           Properties.Alignment.Horz = taRightJustify
-          Properties.DisplayFormat = ',0.;(,0.)'
-          Properties.EditFormat = ',0.;(,0.)'
+          Properties.DisplayFormat = '#,##0.##;(#,##0.##)'
+          Properties.EditFormat = '#,##0.##;(#,##0.##)'
           Properties.Nullable = False
           Properties.Nullstring = '0'
           Properties.ReadOnly = False
@@ -5201,7 +5201,7 @@ object FRrekening: TFRrekening
     end
     object Qrekluasrumah: TFloatField
       FieldName = 'luasrumah'
-      DisplayFormat = ',0.;(,0.)'
+      DisplayFormat = '#,##0.##;(#,##0.##)'
     end
     object Qrekpakai2: TFloatField
       FieldName = 'pakai2'
