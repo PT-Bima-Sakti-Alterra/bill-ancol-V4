@@ -810,7 +810,6 @@ begin
                                                           DM.Qexec.Execute;
                                                      end;
 
-
                                                       DM.Qexec.close;
                                                       DM.Qexec.SQL.Clear;
                                                       DM.Qexec.SQL.Add('REPLACE INTO');
@@ -826,15 +825,17 @@ begin
                                                       DM.Qexec.ParamByName('pelayanan').AsCurrency:=Qcek.fieldbyname('lainnya').AsCurrency;
                                                       DM.Qexec.ParamByName('retribusi').AsCurrency:=Qcek.fieldbyname('retribusi').AsCurrency;
                                                       DM.Qexec.ParamByName('meterai').AsCurrency:=Qcek.fieldbyname('meterai').AsCurrency;
+                                                      DM.Qexec.ParamByName('ppn').AsCurrency:=Qcek.fieldbyname('ppn').AsCurrency;
                                                       DM.Qexec.ParamByName('rekair').AsCurrency:=Qcek.fieldbyname('biayapemakaian').AsCurrency+
                                                                                                  Qcek.fieldbyname('administrasi').AsCurrency+
                                                                                                  Qcek.fieldbyname('pemeliharaan').AsCurrency+
+                                                                                                 Qcek.fieldbyname('pelayanan').AsCurrency+
                                                                                                  Qcek.fieldbyname('retribusi').AsCurrency+
-                                                                                                 Qcek.fieldbyname('meterai').AsCurrency;
+                                                                                                 Qcek.fieldbyname('meterai').AsCurrency+
+                                                                                                 Qcek.fieldbyname('ppn').AsCurrency;
 
                                                       DM.Qexec.ParamByName('dendatunggakan').AsCurrency:=Qcek.fieldbyname('dendatunggakan').AsCurrency;
                                                       DM.Qexec.ParamByName('angsuran').AsCurrency:=0;
-                                                      DM.Qexec.ParamByName('ppn').AsCurrency:=Qcek.fieldbyname('ppn').AsCurrency;
                                                       DM.Qexec.ParamByName('total').AsCurrency:=Qcek.fieldbyname('total').AsCurrency;
                                                       DM.Qexec.ParamByName('golongan').AsString:=Qcek.fieldbyname('golongan').AsString;
                                                       DM.Qexec.ParamByName('namaloket').AsString:=Qcek.fieldbyname('loket').AsString;
@@ -906,15 +907,17 @@ begin
                                                       DM.Qexec.ParamByName('pelayanan').AsCurrency:=Qcek.fieldbyname('lainnya').AsCurrency;
                                                       DM.Qexec.ParamByName('retribusi').AsCurrency:=Qcek.fieldbyname('retribusi').AsCurrency;
                                                       DM.Qexec.ParamByName('meterai').AsCurrency:=Qcek.fieldbyname('meterai').AsCurrency;
+                                                      DM.Qexec.ParamByName('ppn').AsCurrency:=Qcek.fieldbyname('ppn').AsCurrency;
                                                       DM.Qexec.ParamByName('rekair').AsCurrency:=Qcek.fieldbyname('biayapemakaian').AsCurrency+
                                                                                                  Qcek.fieldbyname('administrasi').AsCurrency+
                                                                                                  Qcek.fieldbyname('pemeliharaan').AsCurrency+
+                                                                                                 Qcek.fieldbyname('pelayanan').AsCurrency+
                                                                                                  Qcek.fieldbyname('retribusi').AsCurrency+
-                                                                                                 Qcek.fieldbyname('meterai').AsCurrency;
+                                                                                                 Qcek.fieldbyname('meterai').AsCurrency+
+                                                                                                 Qcek.fieldbyname('ppn').AsCurrency;
 
                                                       DM.Qexec.ParamByName('dendatunggakan').AsCurrency:=Qcek.fieldbyname('dendatunggakan').AsCurrency;
                                                       DM.Qexec.ParamByName('angsuran').AsCurrency:=0;
-                                                      DM.Qexec.ParamByName('ppn').AsCurrency:=Qcek.fieldbyname('ppn').AsCurrency;
                                                       DM.Qexec.ParamByName('total').AsCurrency:=Qcek.fieldbyname('total').AsCurrency;
                                                       DM.Qexec.ParamByName('golongan').AsString:=Qcek.fieldbyname('golongan').AsString;
                                                       DM.Qexec.ParamByName('namaloket').AsString:=Qcek.fieldbyname('loket').AsString;
