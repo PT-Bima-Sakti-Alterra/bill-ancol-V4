@@ -318,7 +318,7 @@ begin
 
                     QgolIPL.close;
                     QgolIPL.SQL.Clear;
-                    QgolIPL.SQL.Add('SELECT kodeIPLyangberlaku FROM golongan_ipl WHERE kodegol=:kodegolipl AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
+                    QgolIPL.SQL.Add('SELECT kodegolyangberlaku FROM golongan_ipl WHERE kodegol=:kodegolipl AND periodemulaiberlaku<=DATE_FORMAT(NOW(),"%Y%m") AND aktif="1"  ORDER BY periodemulaiberlaku DESC LIMIT 1');
                     QgolIPL.ParamByName('kodegolipl').AsString:=data_kodeipl.AsString;
                     QgolIPL.Open;
                      if(QgolIPL.RecordCount>0)then
@@ -396,7 +396,7 @@ begin
                     Qexec.ParamByName('koderetribusilain').AsString:= kodeIPLyangberlaku;
                     Qexec.ParamByName('waktu').AsDateTime := now;
                     Qexec.ParamByName('kodeblok').AsString:= Qcek.fieldbyname('kodeblok').AsString;
-                    Qexec.ParamByName('luasrumah').AsString:= Qcek.fieldbyname('luasrumah').AsString;
+                    Qexec.ParamByName('luasrumah').Value:= Qcek.fieldbyname('luasrumah').Value;
                     Qexec.Execute;
 
 

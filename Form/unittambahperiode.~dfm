@@ -409,7 +409,7 @@ object Ubuatperiode: TUbuatperiode
       'g.airlimbah+d.airlimbah AS airlimbah,'
       'b1.administrasilain,'
       'b2.pemeliharaanlain,'
-      'b3.retribusilain as retribusilain,'
+      'b3.retribusilain,'
       'p.status as flagaktif,'
       'p.kodekolektif,'
       ':tglmulaidenda as tglmulaidenda,'
@@ -435,9 +435,9 @@ object Ubuatperiode: TUbuatperiode
         'LEFT JOIN (select * FROM golongan where aktif="1" GROUP BY kodeg' +
         'ol ORDER BY periodemulaiberlaku) g ON p.kodegol=g.kodegol'
       
-        'LEFT JOIN (select kodegolyangberlaku FROM golongan_ipl where akt' +
-        'if="1" GROUP BY kodegol ORDER BY periodemulaiberlaku) i ON p.kod' +
-        'eretribusilain=i.kodegol'
+        'LEFT JOIN (select * FROM golongan_ipl where aktif="1" GROUP BY k' +
+        'odegol ORDER BY periodemulaiberlaku) i ON p.koderetribusilain=i.' +
+        'kodegol'
       
         'LEFT JOIN (select * FROm diameter WHERE aktif="1" GROUP BY koded' +
         'iameter ORDER BY periodemulaiberlaku) d ON p.kodediameter=d.kode' +

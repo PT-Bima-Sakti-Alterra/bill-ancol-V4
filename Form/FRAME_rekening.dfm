@@ -6408,6 +6408,7 @@ object FRrekening: TFRrekening
     object dxComponentPrinter1Link1: TdxGridReportLink
       Active = True
       Component = Gridrek
+      PageNumberFormat = pnfNumeral
       PrinterPage.DMPaper = 9
       PrinterPage.Footer = 5080
       PrinterPage.GrayShading = True
@@ -6422,8 +6423,9 @@ object FRrekening: TFRrekening
       PrinterPage.ScaleMode = smFit
       PrinterPage._dxMeasurementUnits_ = 0
       PrinterPage._dxLastMU_ = 2
-      ReportDocument.CreationDate = 45425.618449652780000000
+      ReportDocument.CreationDate = 45432.484230509260000000
       ShrinkToPageWidth = True
+      AssignedFormatValues = [fvDate, fvTime, fvPageNumber]
       OptionsCards.AutoWidth = True
       OptionsCards.Borders = False
       OptionsFormatting.UseNativeStyles = True

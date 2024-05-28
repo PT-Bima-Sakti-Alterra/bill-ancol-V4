@@ -599,7 +599,7 @@ object FLogin: TFLogin
       Height = 25
       Align = alBottom
       BorderOuter = fsNone
-      Caption = 'Ver 4.1.18A , Build Update 13 Mei 2024'
+      Caption = 'Ver 4.1.18A , Build Update 20 Mei 2024'
       Color = 20966
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
