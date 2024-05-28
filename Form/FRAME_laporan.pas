@@ -829,7 +829,7 @@ begin
                                                       DM.Qexec.ParamByName('rekair').AsCurrency:=Qcek.fieldbyname('biayapemakaian').AsCurrency+
                                                                                                  Qcek.fieldbyname('administrasi').AsCurrency+
                                                                                                  Qcek.fieldbyname('pemeliharaan').AsCurrency+
-                                                                                                 Qcek.fieldbyname('pelayanan').AsCurrency+
+                                                                                                 Qcek.fieldbyname('lainnya').AsCurrency+
                                                                                                  Qcek.fieldbyname('retribusi').AsCurrency+
                                                                                                  Qcek.fieldbyname('meterai').AsCurrency+
                                                                                                  Qcek.fieldbyname('ppn').AsCurrency;
@@ -911,7 +911,7 @@ begin
                                                       DM.Qexec.ParamByName('rekair').AsCurrency:=Qcek.fieldbyname('biayapemakaian').AsCurrency+
                                                                                                  Qcek.fieldbyname('administrasi').AsCurrency+
                                                                                                  Qcek.fieldbyname('pemeliharaan').AsCurrency+
-                                                                                                 Qcek.fieldbyname('pelayanan').AsCurrency+
+                                                                                                 Qcek.fieldbyname('lainnya').AsCurrency+
                                                                                                  Qcek.fieldbyname('retribusi').AsCurrency+
                                                                                                  Qcek.fieldbyname('meterai').AsCurrency+
                                                                                                  Qcek.fieldbyname('ppn').AsCurrency;
